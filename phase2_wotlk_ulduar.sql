@@ -55,7 +55,7 @@ SET Item = 45624 -- Emblem of Conquest
 WHERE Item = 40752 -- Emblem of Heroism
 AND Entry IN (
     SELECT entry FROM creature_template
-    WHERE rank = 1 -- Elite/Boss em dungeons heroicas
+    WHERE `rank` = 1 -- Elite/Boss em dungeons heroicas
 );
 
 -- ============================================================================

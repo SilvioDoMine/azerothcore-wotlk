@@ -381,7 +381,7 @@ DELETE FROM npc_vendor WHERE item IN (
 
 -- Remover Emblem of Conquest (Phase 2) dos loot tables de Phase 1
 DELETE FROM creature_loot_template WHERE Item = 45624 AND Entry IN (
-    SELECT entry FROM creature_template WHERE rank = 3 -- World bosses
+    SELECT entry FROM creature_template WHERE `rank` = 3 -- World bosses
 );
 
 -- Remover Emblem of Triumph (Phase 3)

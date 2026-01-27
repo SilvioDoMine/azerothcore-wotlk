@@ -60,7 +60,7 @@ SET Item = 47241 -- Emblem of Triumph
 WHERE Item = 45624 -- Emblem of Conquest
 AND Entry IN (
     SELECT entry FROM creature_template
-    WHERE rank = 1 -- Dungeon bosses
+    WHERE `rank` = 1 -- Dungeon bosses
 );
 */
 
