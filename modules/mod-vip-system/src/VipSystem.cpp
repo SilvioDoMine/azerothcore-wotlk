@@ -26,6 +26,11 @@ void VipSystem::LoadConfig()
     _config.MaxConsumptionsPerScan  = sConfigMgr->GetOption<uint32>("VipSystem.MaxConsumptionsPerScan", 50);
     _config.MaxConsumptionsPerLogin = sConfigMgr->GetOption<uint32>("VipSystem.MaxConsumptionsPerLogin", 30);
 
+    _config.EnableTeleport       = sConfigMgr->GetOption<bool>("VipSystem.EnableTeleport", true);
+    _config.EnableBank           = sConfigMgr->GetOption<bool>("VipSystem.EnableBank", true);
+    _config.EnableInstantLogout  = sConfigMgr->GetOption<bool>("VipSystem.EnableInstantLogout", true);
+    _config.TeleportCooldown     = sConfigMgr->GetOption<uint32>("VipSystem.TeleportCooldown", 300);
+
     LOG_INFO("module", "mod-vip-system: {} (ItemEntry={}, Duration={}s, OfflineScan={})",
         _config.Enabled ? "Enabled" : "Disabled",
         _config.ItemEntry, _config.DurationPerItem, _config.ConsumeOffline ? "On" : "Off");
@@ -196,6 +201,44 @@ void VipSystem::OnVipItemReceived(Player* player)
 
     // Auto-consume to activate VIP
     NormalizeVipState(player);
+}
+
+// ============================================================
+// Teleport cooldown tracking
+// ============================================================
+
+bool VipSystem::CanUseTeleport(uint32 guid) const
+{
+    std::lock_guard<std::mutex> lock(_cacheMutex);
+    auto it = _teleportCooldowns.find(guid);
+    if (it == _teleportCooldowns.end())
+        return true;
+    return static_cast<uint64>(GameTime::GetGameTime().count()) >= it->second;
+}
+
+void VipSystem::SetTeleportCooldown(uint32 guid)
+{
+    uint64 nextAvailable = static_cast<uint64>(GameTime::GetGameTime().count()) + _config.TeleportCooldown;
+    std::lock_guard<std::mutex> lock(_cacheMutex);
+    _teleportCooldowns[guid] = nextAvailable;
+}
+
+uint64 VipSystem::GetTeleportCooldownRemaining(uint32 guid) const
+{
+    std::lock_guard<std::mutex> lock(_cacheMutex);
+    auto it = _teleportCooldowns.find(guid);
+    if (it == _teleportCooldowns.end())
+        return 0;
+    uint64 now = static_cast<uint64>(GameTime::GetGameTime().count());
+    if (it->second > now)
+        return it->second - now;
+    return 0;
+}
+
+void VipSystem::RemoveCooldowns(uint32 guid)
+{
+    std::lock_guard<std::mutex> lock(_cacheMutex);
+    _teleportCooldowns.erase(guid);
 }
 
 // ============================================================

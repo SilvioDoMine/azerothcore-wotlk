@@ -60,6 +60,7 @@ public:
 
         uint32 guid = player->GetGUID().GetCounter();
         sVipSystem->SaveVipStatusToDB(guid);
+        sVipSystem->RemoveCooldowns(guid);
         sVipSystem->RemoveFromCache(guid);
     }
 

@@ -2,7 +2,9 @@
 
 #include "Chat.h"
 #include "CommandScript.h"
+#include "DBCStores.h"
 #include "GameTime.h"
+#include "ObjectMgr.h"
 #include "Player.h"
 
 using namespace Acore::ChatCommands;
@@ -14,9 +16,17 @@ public:
 
     ChatCommandTable GetCommands() const override
     {
+        static ChatCommandTable vipSubCommands =
+        {
+            { "tele",   HandleVipTeleCommand,   SEC_PLAYER, Console::No },
+            { "bank",   HandleVipBankCommand,   SEC_PLAYER, Console::No },
+            { "logout", HandleVipLogoutCommand, SEC_PLAYER, Console::No },
+            { "",       HandleVipCommand,       SEC_PLAYER, Console::No }
+        };
+
         static ChatCommandTable commandTable =
         {
-            { "vip", HandleVipCommand, SEC_PLAYER, Console::No }
+            { "vip", vipSubCommands }
         };
 
         return commandTable;
@@ -69,6 +79,159 @@ public:
                 "  Voce nao possui VIP ativo e nao tem xCoin Dias VIP. Adquira para ativar.");
         }
 
+        if (isVip)
+        {
+            handler->SendSysMessage("|cff00ff00=== Comandos VIP ===|r");
+            if (config.EnableTeleport)
+                handler->SendSysMessage("  .vip tele <nome> - Teleportar para um local");
+            if (config.EnableBank)
+                handler->SendSysMessage("  .vip bank - Abrir o banco");
+            if (config.EnableInstantLogout)
+                handler->SendSysMessage("  .vip logout - Logout instantaneo");
+        }
+
+        return true;
+    }
+
+    static bool HandleVipTeleCommand(ChatHandler* handler, GameTele const* tele)
+    {
+        const auto& config = sVipSystem->GetConfig();
+
+        if (!config.Enabled)
+        {
+            handler->SendSysMessage("Sistema VIP desativado.");
+            return true;
+        }
+
+        if (!config.EnableTeleport)
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Teleporte VIP desativado.");
+            return true;
+        }
+
+        Player* player = handler->GetSession()->GetPlayer();
+        if (!player)
+            return false;
+
+        uint32 guid = player->GetGUID().GetCounter();
+
+        if (!sVipSystem->IsVip(guid))
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao possui VIP ativo.");
+            return true;
+        }
+
+        if (!tele)
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Local nao encontrado. Use: .vip tele <nome>");
+            return true;
+        }
+
+        if (player->IsInCombat())
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao pode teleportar em combate.");
+            return true;
+        }
+
+        if (!sVipSystem->CanUseTeleport(guid))
+        {
+            uint64 remaining = sVipSystem->GetTeleportCooldownRemaining(guid);
+            handler->PSendSysMessage("|cffff0000[VIP]|r Teleporte em cooldown. Tempo restante: |cffffffff{}|r",
+                VipSystem::FormatDuration(remaining));
+            return true;
+        }
+
+        MapEntry const* map = sMapStore.LookupEntry(tele->mapId);
+        if (!map || (map->IsBattlegroundOrArena() && player->GetMapId() != tele->mapId))
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao pode teleportar para esse local.");
+            return true;
+        }
+
+        if (player->IsInFlight())
+        {
+            player->GetMotionMaster()->MovementExpired();
+            player->CleanupAfterTaxiFlight();
+        }
+        else
+        {
+            player->SaveRecallPosition();
+        }
+
+        player->TeleportTo(tele->mapId, tele->position_x, tele->position_y, tele->position_z, tele->orientation);
+        sVipSystem->SetTeleportCooldown(guid);
+
+        handler->PSendSysMessage("|cff00ff00[VIP]|r Teleportado para: |cffffffff{}|r", tele->name);
+        return true;
+    }
+
+    static bool HandleVipBankCommand(ChatHandler* handler)
+    {
+        const auto& config = sVipSystem->GetConfig();
+
+        if (!config.Enabled)
+        {
+            handler->SendSysMessage("Sistema VIP desativado.");
+            return true;
+        }
+
+        if (!config.EnableBank)
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Banco VIP desativado.");
+            return true;
+        }
+
+        Player* player = handler->GetSession()->GetPlayer();
+        if (!player)
+            return false;
+
+        uint32 guid = player->GetGUID().GetCounter();
+
+        if (!sVipSystem->IsVip(guid))
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao possui VIP ativo.");
+            return true;
+        }
+
+        player->GetSession()->SendShowBank(player->GetGUID());
+        return true;
+    }
+
+    static bool HandleVipLogoutCommand(ChatHandler* handler)
+    {
+        const auto& config = sVipSystem->GetConfig();
+
+        if (!config.Enabled)
+        {
+            handler->SendSysMessage("Sistema VIP desativado.");
+            return true;
+        }
+
+        if (!config.EnableInstantLogout)
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Logout instantaneo VIP desativado.");
+            return true;
+        }
+
+        Player* player = handler->GetSession()->GetPlayer();
+        if (!player)
+            return false;
+
+        uint32 guid = player->GetGUID().GetCounter();
+
+        if (!sVipSystem->IsVip(guid))
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao possui VIP ativo.");
+            return true;
+        }
+
+        if (player->IsInCombat())
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao pode fazer logout em combate.");
+            return true;
+        }
+
+        player->GetSession()->LogoutPlayer(true);
         return true;
     }
 };

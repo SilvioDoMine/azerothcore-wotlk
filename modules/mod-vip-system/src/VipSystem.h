@@ -18,6 +18,12 @@ struct VipSystemConfig
     uint32 OfflineScanInterval = 60;
     uint32 MaxConsumptionsPerScan = 50;
     uint32 MaxConsumptionsPerLogin = 30;
+
+    // VIP benefits
+    bool EnableTeleport = true;
+    bool EnableBank = true;
+    bool EnableInstantLogout = true;
+    uint32 TeleportCooldown = 300; // seconds
 };
 
 class VipSystem
@@ -40,6 +46,12 @@ public:
     uint64 GetExpiresAt(uint32 guid) const;
     uint64 GetRemainingSeconds(uint32 guid) const;
 
+    // Teleport cooldown tracking (in-memory, resets on server restart)
+    bool CanUseTeleport(uint32 guid) const;
+    void SetTeleportCooldown(uint32 guid);
+    uint64 GetTeleportCooldownRemaining(uint32 guid) const;
+    void RemoveCooldowns(uint32 guid);
+
     // Offline scanner
     void RunOfflineScanner();
 
@@ -52,6 +64,7 @@ private:
     VipSystemConfig _config;
     mutable std::mutex _cacheMutex;
     std::unordered_map<uint32, uint64> _vipCache; // guid -> expires_at
+    std::unordered_map<uint32, uint64> _teleportCooldowns; // guid -> next_available_timestamp
 };
 
 #define sVipSystem VipSystem::instance()

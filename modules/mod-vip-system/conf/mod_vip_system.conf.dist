@@ -63,3 +63,38 @@ VipSystem.MaxConsumptionsPerScan = 50
 #
 
 VipSystem.MaxConsumptionsPerLogin = 30
+
+#
+#   VipSystem.EnableTeleport
+#   Description: Enable the .vip tele command for VIP players.
+#   Default: 1
+#
+
+VipSystem.EnableTeleport = 1
+
+#
+#   VipSystem.TeleportCooldown
+#   Description: Cooldown in seconds between VIP teleports.
+#                Default is 300 (5 minutes).
+#   Default: 300
+#
+
+VipSystem.TeleportCooldown = 300
+
+#
+#   VipSystem.EnableBank
+#   Description: Enable the .vip bank command for VIP players.
+#                Allows opening the bank from anywhere.
+#   Default: 1
+#
+
+VipSystem.EnableBank = 1
+
+#
+#   VipSystem.EnableInstantLogout
+#   Description: Enable the .vip logout command for VIP players.
+#                Allows instant logout from anywhere (outside combat).
+#   Default: 1
+#
+
+VipSystem.EnableInstantLogout = 1
