@@ -11,7 +11,8 @@ public:
     VipSystemPlayerScript() : PlayerScript("VipSystemPlayerScript", {
         PLAYERHOOK_ON_LOGIN,
         PLAYERHOOK_ON_LOGOUT,
-        PLAYERHOOK_ON_STORE_NEW_ITEM
+        PLAYERHOOK_ON_STORE_NEW_ITEM,
+        PLAYERHOOK_ON_UPDATE
     }) { }
 
     void OnPlayerLogin(Player* player) override
@@ -50,6 +51,23 @@ public:
                 ChatHandler(player->GetSession()).SendSysMessage(
                     "  Status: |cffff0000INATIVO|r - Adquira um xCoin Dias VIP para ativar.");
             }
+        }
+    }
+
+    void OnPlayerUpdate(Player* player, uint32 /*p_time*/) override
+    {
+        if (!sVipSystem->GetConfig().Enabled || !sVipSystem->GetConfig().EnableInstantLogout)
+            return;
+
+        // If the player's session is in the 20-second logout wait, and they're VIP,
+        // force instant logout by setting the logout start time to the past.
+        // WorldSession::Update will then call LogoutPlayer(true) on the next tick.
+        WorldSession* session = player->GetSession();
+        if (session && session->isLogingOut() && !player->IsInCombat())
+        {
+            uint32 guid = player->GetGUID().GetCounter();
+            if (sVipSystem->IsVip(guid))
+                session->SetLogoutStartTime(1);
         }
     }
 
