@@ -3,6 +3,7 @@
 
 #include "Chat.h"
 #include "CreatureScript.h"
+#include "DBCStores.h"
 #include "GossipDef.h"
 #include "ObjectMgr.h"
 #include "Player.h"
@@ -127,11 +128,20 @@ private:
         for (uint32 i = startIndex; i < endIndex; ++i)
         {
             VipShopItem const* item = state.filteredItems[i];
-            std::string label = VipShop::BuildItemLink(item->itemEntry, item->name, item->quality)
+
+            // Build icon texture from item's display info
+            std::string iconText;
+            ItemTemplate const* itemTemplate = sObjectMgr->GetItemTemplate(item->itemEntry);
+            if (itemTemplate)
+            {
+                ItemDisplayInfoEntry const* displayInfo = sItemDisplayInfoStore.LookupEntry(itemTemplate->DisplayInfoID);
+                if (displayInfo && displayInfo->inventoryIcon)
+                    iconText = "|TInterface\\icons\\" + std::string(displayInfo->inventoryIcon) + ":40:40:-18|t ";
+            }
+
+            std::string label = iconText
+                + VipShop::BuildItemLink(item->itemEntry, item->name, item->quality)
                 + " - " + std::to_string(item->price) + " dia(s)";
-            // Debug: log label to server log and also send to player chat for verification
-            LOG_INFO("module", "mod-vip-system: gossip label='{}'", label);
-            ChatHandler(player->GetSession()).PSendSysMessage("[Loja VIP] Opcao: {}", label);
             AddGossipItemFor(player, GOSSIP_ICON_VENDOR, label,
                 SENDER_ITEM_LIST, i - startIndex);
         }
