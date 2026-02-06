@@ -129,6 +129,9 @@ private:
             VipShopItem const* item = state.filteredItems[i];
             std::string label = VipShop::BuildItemLink(item->itemEntry, item->name, item->quality)
                 + " - " + std::to_string(item->price) + " dia(s)";
+            // Debug: log label to server log and also send to player chat for verification
+            LOG_INFO("module", "mod-vip-system: gossip label='{}'", label);
+            ChatHandler(player->GetSession()).PSendSysMessage("[Loja VIP] Opcao: {}", label);
             AddGossipItemFor(player, GOSSIP_ICON_VENDOR, label,
                 SENDER_ITEM_LIST, i - startIndex);
         }
