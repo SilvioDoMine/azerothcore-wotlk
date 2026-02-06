@@ -63,14 +63,57 @@ INSERT INTO creature ...
 WHERE id1 IN (37942, 38858, 37941);
 */
 
--- 4.2 Configurar emblems Phase 4
--- Comportamento Blizzard Phase 4:
--- - Heroics dropam 2x Emblem of Frost (daily bonus) + Triumph regular
+-- 4.2 Comportamento Blizzard Phase 4 (Patch 3.3):
+-- - Heroics dropam Triumph (regular) + Frost via daily dungeon finder
 -- - ICC 10/25 dropa Frost
--- - ToC ainda dropa Triumph
+-- - ToC, Ulduar, Naxx continuam dropando Triumph
+-- - Frozen Halls (3 dungeons heroicas novas) dropam Triumph
 
--- Adicionar Frost como daily bonus (via spell/aura no código)
--- Ou configurar via script customizado
+-- 4.3 Adicionar Emblem of Frost para ICC bosses
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+-- ICC 10-man
+(36612, 49426, 0, 100, 0, 1, 0, 2, 2, 'Lord Marrowgar - Emblem of Frost'),
+(36855, 49426, 0, 100, 0, 1, 0, 2, 2, 'Lady Deathwhisper - Emblem of Frost'),
+(36939, 49426, 0, 100, 0, 1, 0, 2, 2, 'High Overlord Saurfang - Emblem of Frost'),
+(37813, 49426, 0, 100, 0, 1, 0, 2, 2, 'Deathbringer Saurfang - Emblem of Frost'),
+(36626, 49426, 0, 100, 0, 1, 0, 2, 2, 'Festergut - Emblem of Frost'),
+(36627, 49426, 0, 100, 0, 1, 0, 2, 2, 'Rotface - Emblem of Frost'),
+(36678, 49426, 0, 100, 0, 1, 0, 2, 2, 'Professor Putricide - Emblem of Frost'),
+(37970, 49426, 0, 100, 0, 1, 0, 2, 2, 'Blood Prince Council - Emblem of Frost'),
+(37955, 49426, 0, 100, 0, 1, 0, 2, 2, 'Blood-Queen Lana\'thel - Emblem of Frost'),
+(36789, 49426, 0, 100, 0, 1, 0, 2, 2, 'Valithria Dreamwalker - Emblem of Frost'),
+(36853, 49426, 0, 100, 0, 1, 0, 2, 2, 'Sindragosa - Emblem of Frost'),
+(36597, 49426, 0, 100, 0, 1, 0, 3, 3, 'The Lich King - Emblem of Frost');
+
+-- 4.4 Adicionar Toravon the Ice Watcher ao VoA (Phase 4 boss)
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+(38433, 49426, 0, 100, 0, 1, 0, 2, 2, 'Toravon the Ice Watcher - Emblem of Frost'),
+(38462, 49426, 0, 100, 0, 1, 0, 2, 2, 'Toravon the Ice Watcher (1) - Emblem of Frost');
+
+-- 4.5 Adicionar Emblem of Triumph para Frozen Halls dungeons
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+-- Forge of Souls
+(36497, 47241, 0, 100, 0, 1, 0, 1, 1, 'Bronjahm - Emblem of Triumph'),
+(36498, 47241, 0, 100, 0, 1, 0, 1, 1, 'Bronjahm (1) - Emblem of Triumph'),
+(36502, 47241, 0, 100, 0, 1, 0, 1, 1, 'Devourer of Souls - Emblem of Triumph'),
+(37677, 47241, 0, 100, 0, 1, 0, 1, 1, 'Devourer of Souls (1) - Emblem of Triumph'),
+-- Pit of Saron
+(36494, 47241, 0, 100, 0, 1, 0, 1, 1, 'Forgemaster Garfrost - Emblem of Triumph'),
+(37613, 47241, 0, 100, 0, 1, 0, 1, 1, 'Forgemaster Garfrost (1) - Emblem of Triumph'),
+(36476, 47241, 0, 100, 0, 1, 0, 1, 1, 'Ick - Emblem of Triumph'),
+(37627, 47241, 0, 100, 0, 1, 0, 1, 1, 'Ick (1) - Emblem of Triumph'),
+(36658, 47241, 0, 100, 0, 1, 0, 1, 1, 'Scourgelord Tyrannus - Emblem of Triumph'),
+(36938, 47241, 0, 100, 0, 1, 0, 1, 1, 'Scourgelord Tyrannus (1) - Emblem of Triumph'),
+-- Halls of Reflection
+(38112, 47241, 0, 100, 0, 1, 0, 1, 1, 'Falric - Emblem of Triumph'),
+(38599, 47241, 0, 100, 0, 1, 0, 1, 1, 'Falric (1) - Emblem of Triumph'),
+(38113, 47241, 0, 100, 0, 1, 0, 1, 1, 'Marwyn - Emblem of Triumph'),
+(38603, 47241, 0, 100, 0, 1, 0, 1, 1, 'Marwyn (1) - Emblem of Triumph');
+
+-- 4.6 Halion (Ruby Sanctum) dropa Emblem of Frost
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+(39863, 49426, 0, 100, 0, 1, 0, 2, 2, 'Halion - Emblem of Frost'),
+(40142, 49426, 0, 100, 0, 1, 0, 2, 2, 'Halion (1) - Emblem of Frost');
 
 -- ============================================================================
 -- PARTE 5: TIER 10 VENDORS

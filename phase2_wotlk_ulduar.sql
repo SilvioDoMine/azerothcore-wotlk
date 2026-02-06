@@ -46,17 +46,46 @@ INSERT INTO creature (guid, id1, map, position_x, position_y, position_z, orient
 SELECT * FROM backup_creature WHERE id1 IN (33964, 33963);
 */
 
--- 3.2 Configurar dungeons heroicas para dropar Conquest
--- Opcional: mudar emblems das heroics de Heroism para Conquest
--- Comportamento Blizzard-like da Phase 2
+-- 3.2 Remover emblemas de Phase 1 dos bosses de raid (serão substituídos por Conquest)
+-- Naxx + OS + VoA continuam dropando emblemas antigos (Heroism/Valor)
+-- Apenas Ulduar dropa Conquest
 
-UPDATE creature_loot_template
-SET Item = 45624 -- Emblem of Conquest
-WHERE Item = 40752 -- Emblem of Heroism
-AND Entry IN (
-    SELECT entry FROM creature_template
-    WHERE `rank` = 1 -- Elite/Boss em dungeons heroicas
-);
+-- 3.3 Adicionar Emblem of Conquest para Ulduar bosses
+-- Ulduar 10-man e 25-man ambos dropam Conquest
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+-- Ulduar 10-man
+(33113, 45624, 0, 100, 0, 1, 0, 1, 1, 'Flame Leviathan - Emblem of Conquest'),
+(33118, 45624, 0, 100, 0, 1, 0, 1, 1, 'Ignis the Furnace Master - Emblem of Conquest'),
+(33186, 45624, 0, 100, 0, 1, 0, 1, 1, 'Razorscale - Emblem of Conquest'),
+(33293, 45624, 0, 100, 0, 1, 0, 1, 1, 'XT-002 Deconstructor - Emblem of Conquest'),
+(32867, 45624, 0, 100, 0, 1, 0, 1, 1, 'Steelbreaker - Emblem of Conquest'),
+(32927, 45624, 0, 100, 0, 1, 0, 1, 1, 'Runemaster Molgeim - Emblem of Conquest'),
+(32857, 45624, 0, 100, 0, 1, 0, 1, 1, 'Stormcaller Brundir - Emblem of Conquest'),
+(32930, 45624, 0, 100, 0, 1, 0, 1, 1, 'Kologarn - Emblem of Conquest'),
+(33515, 45624, 0, 100, 0, 1, 0, 1, 1, 'Auriaya - Emblem of Conquest'),
+(32845, 45624, 0, 100, 0, 1, 0, 1, 1, 'Hodir - Emblem of Conquest'),
+(32865, 45624, 0, 100, 0, 1, 0, 1, 1, 'Thorim - Emblem of Conquest'),
+(32906, 45624, 0, 100, 0, 1, 0, 1, 1, 'Freya - Emblem of Conquest'),
+(33350, 45624, 0, 100, 0, 1, 0, 1, 1, 'Mimiron - Emblem of Conquest'),
+(33271, 45624, 0, 100, 0, 1, 0, 1, 1, 'General Vezax - Emblem of Conquest'),
+(33288, 45624, 0, 100, 0, 1, 0, 2, 2, 'Yogg-Saron - Emblem of Conquest'),
+(32871, 45624, 0, 100, 0, 1, 0, 2, 2, 'Algalon the Observer - Emblem of Conquest'),
+-- Ulduar 25-man
+(33113, 45624, 0, 100, 0, 2, 0, 1, 1, 'Flame Leviathan (25) - Emblem of Conquest'),
+(33190, 45624, 0, 100, 0, 1, 0, 1, 1, 'Ignis the Furnace Master (1) - Emblem of Conquest'),
+(33724, 45624, 0, 100, 0, 1, 0, 1, 1, 'Razorscale (1) - Emblem of Conquest'),
+(33885, 45624, 0, 100, 0, 1, 0, 1, 1, 'XT-002 Deconstructor (1) - Emblem of Conquest'),
+(33693, 45624, 0, 100, 0, 1, 0, 1, 1, 'Steelbreaker (1) - Emblem of Conquest'),
+(33692, 45624, 0, 100, 0, 1, 0, 1, 1, 'Runemaster Molgeim (1) - Emblem of Conquest'),
+(33694, 45624, 0, 100, 0, 1, 0, 1, 1, 'Stormcaller Brundir (1) - Emblem of Conquest'),
+(34175, 45624, 0, 100, 0, 1, 0, 1, 1, 'Auriaya (1) - Emblem of Conquest'),
+(33449, 45624, 0, 100, 0, 1, 0, 1, 1, 'General Vezax (1) - Emblem of Conquest'),
+(33955, 45624, 0, 100, 0, 1, 0, 2, 2, 'Yogg-Saron (1) - Emblem of Conquest');
+
+-- 3.4 Adicionar Emalon the Storm Watcher ao VoA (Phase 2 boss)
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+(33993, 45624, 0, 100, 0, 1, 0, 2, 2, 'Emalon the Storm Watcher - Emblem of Conquest'),
+(33994, 45624, 0, 100, 0, 1, 0, 2, 2, 'Emalon the Storm Watcher (1) - Emblem of Conquest');
 
 -- ============================================================================
 -- PARTE 4: TIER 8 VENDORS

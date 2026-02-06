@@ -1,0 +1,65 @@
+[worldserver]
+
+########################################
+# mod-vip-system configuration
+########################################
+
+#
+#   VipSystem.Enable
+#   Description: Enable or disable the VIP system module.
+#   Default: 1
+#
+
+VipSystem.Enable = 1
+
+#
+#   VipSystem.ItemEntry
+#   Description: Item template entry used as the xCoin VIP Token.
+#   Default: 18154
+#
+
+VipSystem.ItemEntry = 18154
+
+#
+#   VipSystem.ConsumeOffline
+#   Description: Whether the offline scanner should auto-consume tokens
+#                for offline players whose VIP has expired.
+#   Default: 1
+#
+
+VipSystem.ConsumeOffline = 1
+
+#
+#   VipSystem.DurationPerItem
+#   Description: Duration in seconds that one VIP Token grants.
+#                Default is 86400 (24 hours).
+#   Default: 86400
+#
+
+VipSystem.DurationPerItem = 86400
+
+#
+#   VipSystem.OfflineScanIntervalSec
+#   Description: How often (in seconds) the offline scanner runs to
+#                check for expired VIP players with remaining tokens.
+#   Default: 60
+#
+
+VipSystem.OfflineScanIntervalSec = 60
+
+#
+#   VipSystem.MaxConsumptionsPerScan
+#   Description: Maximum number of offline players to process per scan cycle.
+#   Default: 50
+#
+
+VipSystem.MaxConsumptionsPerScan = 50
+
+#
+#   VipSystem.MaxConsumptionsPerLogin
+#   Description: Maximum number of tokens to auto-consume on login
+#                when VIP has been expired for a long time.
+#   Default: 30
+#
+
+VipSystem.MaxConsumptionsPerLogin = 30

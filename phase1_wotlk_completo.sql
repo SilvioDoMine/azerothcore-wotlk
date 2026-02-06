@@ -393,6 +393,107 @@ DELETE FROM creature_loot_template WHERE Item = 49426;
 DELETE FROM reference_loot_template WHERE Item = 49426;
 
 -- ============================================================================
+-- 9.2 Adicionar Emblems corretos da Phase 1
+-- ============================================================================
+
+-- Raids 10-man = Emblem of Heroism (40752)
+-- Raids 25-man = Emblem of Valor (40753)
+-- Heroic Dungeons = Emblem of Heroism (40752)
+
+-- Naxxramas 10-man + Obsidian Sanctum 10-man + Vault of Archavon 10-man
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+(15956, 40752, 0, 100, 0, 1, 0, 1, 1, 'Anub\'Rekhan - Emblem of Heroism'),
+(15953, 40752, 0, 100, 0, 1, 0, 1, 1, 'Grand Widow Faerlina - Emblem of Heroism'),
+(15952, 40752, 0, 100, 0, 1, 0, 1, 1, 'Maexxna - Emblem of Heroism'),
+(15954, 40752, 0, 100, 0, 1, 0, 1, 1, 'Noth the Plaguebringer - Emblem of Heroism'),
+(15936, 40752, 0, 100, 0, 1, 0, 1, 1, 'Heigan the Unclean - Emblem of Heroism'),
+(16011, 40752, 0, 100, 0, 1, 0, 1, 1, 'Loatheb - Emblem of Heroism'),
+(16061, 40752, 0, 100, 0, 1, 0, 1, 1, 'Instructor Razuvious - Emblem of Heroism'),
+(16060, 40752, 0, 100, 0, 1, 0, 1, 1, 'Gothik the Harvester - Emblem of Heroism'),
+(16028, 40752, 0, 100, 0, 1, 0, 1, 1, 'Patchwerk - Emblem of Heroism'),
+(15931, 40752, 0, 100, 0, 1, 0, 1, 1, 'Grobbulus - Emblem of Heroism'),
+(15932, 40752, 0, 100, 0, 1, 0, 1, 1, 'Gluth - Emblem of Heroism'),
+(15928, 40752, 0, 100, 0, 1, 0, 1, 1, 'Thaddius - Emblem of Heroism'),
+(15989, 40752, 0, 100, 0, 1, 0, 1, 1, 'Sapphiron - Emblem of Heroism'),
+(15990, 40752, 0, 100, 0, 1, 0, 2, 2, 'Kel\'Thuzad - Emblem of Heroism'),
+(28860, 40752, 0, 100, 0, 1, 0, 1, 1, 'Sartharion - Emblem of Heroism'),
+(31125, 40752, 0, 100, 0, 1, 0, 2, 2, 'Archavon the Stone Watcher - Emblem of Heroism');
+
+-- Naxxramas 25-man + Obsidian Sanctum 25-man + Vault of Archavon 25-man
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+(29249, 40753, 0, 100, 0, 1, 0, 1, 1, 'Anub\'Rekhan (1) - Emblem of Valor'),
+(29268, 40753, 0, 100, 0, 1, 0, 1, 1, 'Grand Widow Faerlina (1) - Emblem of Valor'),
+(29278, 40753, 0, 100, 0, 1, 0, 1, 1, 'Maexxna (1) - Emblem of Valor'),
+(29615, 40753, 0, 100, 0, 1, 0, 1, 1, 'Noth the Plaguebringer (1) - Emblem of Valor'),
+(29701, 40753, 0, 100, 0, 1, 0, 1, 1, 'Heigan the Unclean (1) - Emblem of Valor'),
+(29718, 40753, 0, 100, 0, 1, 0, 1, 1, 'Loatheb (1) - Emblem of Valor'),
+(29940, 40753, 0, 100, 0, 1, 0, 1, 1, 'Instructor Razuvious (1) - Emblem of Valor'),
+(29955, 40753, 0, 100, 0, 1, 0, 1, 1, 'Gothik the Harvester (1) - Emblem of Valor'),
+(29324, 40753, 0, 100, 0, 1, 0, 1, 1, 'Patchwerk (1) - Emblem of Valor'),
+(29373, 40753, 0, 100, 0, 1, 0, 1, 1, 'Grobbulus (1) - Emblem of Valor'),
+(29417, 40753, 0, 100, 0, 1, 0, 1, 1, 'Gluth (1) - Emblem of Valor'),
+(29448, 40753, 0, 100, 0, 1, 0, 1, 1, 'Thaddius (1) - Emblem of Valor'),
+(29991, 40753, 0, 100, 0, 1, 0, 1, 1, 'Sapphiron (1) - Emblem of Valor'),
+(30061, 40753, 0, 100, 0, 1, 0, 2, 2, 'Kel\'Thuzad (1) - Emblem of Valor'),
+(31311, 40753, 0, 100, 0, 1, 0, 1, 1, 'Sartharion (1) - Emblem of Valor'),
+(31722, 40753, 0, 100, 0, 1, 0, 2, 2, 'Archavon the Stone Watcher (1) - Emblem of Valor');
+
+-- Heroic Dungeons - Emblem of Heroism
+INSERT INTO creature_loot_template (Entry, Item, Reference, Chance, QuestRequired, LootMode, GroupId, MinCount, MaxCount, Comment) VALUES
+(29932, 40752, 0, 100, 0, 1, 0, 1, 1, 'Eck the Ferocious - Emblem of Heroism'),
+(30397, 40752, 0, 100, 0, 1, 0, 1, 1, 'Commander Kolurg (1) - Emblem of Heroism'),
+(30398, 40752, 0, 100, 0, 1, 0, 1, 1, 'Commander Stoutbeard (1) - Emblem of Heroism'),
+(30510, 40752, 0, 100, 0, 1, 0, 1, 1, 'Grand Magus Telestra (1) - Emblem of Heroism'),
+(30529, 40752, 0, 100, 0, 1, 0, 1, 1, 'Anomalus (1) - Emblem of Heroism'),
+(30530, 40752, 0, 100, 0, 1, 0, 1, 1, 'Moorabi (1) - Emblem of Heroism'),
+(30532, 40752, 0, 100, 0, 1, 0, 1, 1, 'Ormorok the Tree-Shaper (1) - Emblem of Heroism'),
+(30540, 40752, 0, 100, 0, 1, 0, 1, 1, 'Keristrasza (1) - Emblem of Heroism'),
+(30748, 40752, 0, 100, 0, 1, 0, 1, 1, 'Prince Keleseth (1) - Emblem of Heroism'),
+(30774, 40752, 0, 100, 0, 1, 0, 1, 1, 'Gortok Palehoof (1) - Emblem of Heroism'),
+(30788, 40752, 0, 100, 0, 1, 0, 1, 1, 'King Ymiron (1) - Emblem of Heroism'),
+(30807, 40752, 0, 100, 0, 1, 0, 1, 1, 'Skadi the Ruthless (1) - Emblem of Heroism'),
+(30810, 40752, 0, 100, 0, 1, 0, 1, 1, 'Svala Sorrowgrave (1) - Emblem of Heroism'),
+(31211, 40752, 0, 100, 0, 1, 0, 1, 1, 'Meathook (1) - Emblem of Heroism'),
+(31212, 40752, 0, 100, 0, 1, 0, 1, 1, 'Salramm the Fleshcrafter (1) - Emblem of Heroism'),
+(31215, 40752, 0, 100, 0, 1, 0, 1, 1, 'Chrono-Lord Epoch (1) - Emblem of Heroism'),
+(31349, 40752, 0, 100, 0, 1, 0, 1, 1, 'King Dred (1) - Emblem of Heroism'),
+(31350, 40752, 0, 100, 0, 1, 0, 1, 1, 'Novos the Summoner (1) - Emblem of Heroism'),
+(31360, 40752, 0, 100, 0, 1, 0, 1, 1, 'The Prophet Tharon\'ja (1) - Emblem of Heroism'),
+(31362, 40752, 0, 100, 0, 1, 0, 1, 1, 'Trollgore (1) - Emblem of Heroism'),
+(31367, 40752, 0, 100, 0, 1, 0, 1, 1, 'Drakkari Elemental (1) - Emblem of Heroism'),
+(31368, 40752, 0, 100, 0, 1, 0, 1, 1, 'Gal\'darah (1) - Emblem of Heroism'),
+(31370, 40752, 0, 100, 0, 1, 0, 1, 1, 'Slad\'ran (1) - Emblem of Heroism'),
+(31381, 40752, 0, 100, 0, 1, 0, 1, 1, 'Krystallus (1) - Emblem of Heroism'),
+(31384, 40752, 0, 100, 0, 1, 0, 1, 1, 'Maiden of Grief (1) - Emblem of Heroism'),
+(31386, 40752, 0, 100, 0, 1, 0, 1, 1, 'Sjonnir The Ironshaper (1) - Emblem of Heroism'),
+(31456, 40752, 0, 100, 0, 1, 0, 1, 1, 'Elder Nadox (1) - Emblem of Heroism'),
+(31463, 40752, 0, 100, 0, 1, 0, 1, 1, 'Amanitar (1) - Emblem of Heroism'),
+(31464, 40752, 0, 100, 0, 1, 0, 1, 1, 'Herald Volazj (1) - Emblem of Heroism'),
+(31465, 40752, 0, 100, 0, 1, 0, 1, 1, 'Jedoga Shadowseeker (1) - Emblem of Heroism'),
+(31469, 40752, 0, 100, 0, 1, 0, 1, 1, 'Prince Taldaram (1) - Emblem of Heroism'),
+(31506, 40752, 0, 100, 0, 1, 0, 1, 1, 'Cyanigosa (1) - Emblem of Heroism'),
+(31507, 40752, 0, 100, 0, 1, 0, 1, 1, 'Erekem (1) - Emblem of Heroism'),
+(31508, 40752, 0, 100, 0, 1, 0, 1, 1, 'Ichoron (1) - Emblem of Heroism'),
+(31509, 40752, 0, 100, 0, 1, 0, 1, 1, 'Lavanthor (1) - Emblem of Heroism'),
+(31510, 40752, 0, 100, 0, 1, 0, 1, 1, 'Moragg (1) - Emblem of Heroism'),
+(31511, 40752, 0, 100, 0, 1, 0, 1, 1, 'Xevozz (1) - Emblem of Heroism'),
+(31512, 40752, 0, 100, 0, 1, 0, 1, 1, 'Zuramat the Obliterator (1) - Emblem of Heroism'),
+(31533, 40752, 0, 100, 0, 1, 0, 1, 1, 'General Bjarngrim (1) - Emblem of Heroism'),
+(31536, 40752, 0, 100, 0, 1, 0, 1, 1, 'Volkhan (1) - Emblem of Heroism'),
+(31537, 40752, 0, 100, 0, 1, 0, 1, 1, 'Ionar (1) - Emblem of Heroism'),
+(31538, 40752, 0, 100, 0, 1, 0, 1, 1, 'Loken (1) - Emblem of Heroism'),
+(31558, 40752, 0, 100, 0, 1, 0, 1, 1, 'Drakos the Interrogator (1) - Emblem of Heroism'),
+(31559, 40752, 0, 100, 0, 1, 0, 1, 1, 'Varos Cloudstrider (1) - Emblem of Heroism'),
+(31560, 40752, 0, 100, 0, 1, 0, 1, 1, 'Mage-Lord Urom (1) - Emblem of Heroism'),
+(31610, 40752, 0, 100, 0, 1, 0, 1, 1, 'Anub\'arak (1) - Emblem of Heroism'),
+(31611, 40752, 0, 100, 0, 1, 0, 1, 1, 'Hadronox (1) - Emblem of Heroism'),
+(31612, 40752, 0, 100, 0, 1, 0, 1, 1, 'Krik\'thir the Gatewatcher (1) - Emblem of Heroism'),
+(31656, 40752, 0, 100, 0, 1, 0, 1, 1, 'Dalronn the Controller (1) - Emblem of Heroism'),
+(31673, 40752, 0, 100, 0, 1, 0, 1, 1, 'Ingvar the Plunderer (1) - Emblem of Heroism'),
+(31679, 40752, 0, 100, 0, 1, 0, 1, 1, 'Skarvald the Constructor (1) - Emblem of Heroism'),
+(32313, 40752, 0, 100, 0, 1, 0, 1, 1, 'Infinite Corruptor (1) - Emblem of Heroism');
+
+-- ============================================================================
 -- FINALIZAÇÃO
 -- ============================================================================
 
