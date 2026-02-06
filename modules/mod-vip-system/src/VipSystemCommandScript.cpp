@@ -49,7 +49,7 @@ public:
         uint32 guid = player->GetGUID().GetCounter();
         bool isVip = sVipSystem->IsVip(guid);
         uint64 remaining = sVipSystem->GetRemainingSeconds(guid);
-        uint32 tokenCount = player->GetItemCount(config.ItemEntry, false);
+        uint32 tokenCount = player->GetItemCount(config.ItemEntry, true);
         uint64 tokenTime = static_cast<uint64>(tokenCount) * config.DurationPerItem;
         uint64 totalTime = remaining + tokenTime;
 
@@ -66,7 +66,7 @@ public:
             handler->PSendSysMessage("  VIP: |cffff0000Inativo|r");
         }
 
-        handler->PSendSysMessage("  xCoin Dias VIP no inventario: |cffffffff{}|r", tokenCount);
+        handler->PSendSysMessage("  xCoin Dias VIP no inventario e banco: |cffffffff{}|r", tokenCount);
 
         if (totalTime > 0)
         {
