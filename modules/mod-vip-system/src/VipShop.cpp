@@ -2,6 +2,7 @@
 #include "VipSystem.h"
 
 #include <sstream>
+#include <iomanip>
 
 #include "Chat.h"
 #include "Config.h"
@@ -131,7 +132,8 @@ std::string VipShop::BuildItemLink(uint32 entry, std::string const& name, uint8 
 
     std::stringstream ss;
     ss << "|c";
-    ss << std::hex << color << std::dec;
+    // Ensure hex color is printed with leading zeros (AARRGGBB / 8 hex digits)
+    ss << std::hex << std::setfill('0') << std::setw(8) << (color & 0xFFFFFFFFu) << std::dec;
     ss << "|Hitem:" << entry << ":0:0:0:0:0:0:0:0:0|h[" << name << "]|h|r";
     return ss.str();
 }
