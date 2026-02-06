@@ -1,6 +1,8 @@
 #include "VipShop.h"
 #include "VipSystem.h"
 
+#include <sstream>
+
 #include "Chat.h"
 #include "Config.h"
 #include "DatabaseEnv.h"
@@ -8,6 +10,7 @@
 #include "Log.h"
 #include "ObjectMgr.h"
 #include "Player.h"
+#include "SharedDefines.h"
 
 VipShop* VipShop::instance()
 {
@@ -123,23 +126,14 @@ std::vector<VipShopItem const*> VipShop::GetFilteredItems(uint8 vendorType, Play
 
 std::string VipShop::BuildItemLink(uint32 entry, std::string const& name, uint8 quality)
 {
-    // WoW item quality color codes
-    static const char* qualityColors[] = {
-        "ff9d9d9d", // 0 POOR (gray)
-        "ffffffff", // 1 NORMAL (white)
-        "ff1eff00", // 2 UNCOMMON (green)
-        "ff0070dd", // 3 RARE (blue)
-        "ffa335ee", // 4 EPIC (purple)
-        "ffff8000", // 5 LEGENDARY (orange)
-        "ffe6cc80", // 6 ARTIFACT (light yellow)
-        "ffe6cc80", // 7 HEIRLOOM (light yellow)
-    };
+    // Use the same format as the core (SharedDefines.h ItemQualityColors)
+    uint32 color = (quality < MAX_ITEM_QUALITY) ? ItemQualityColors[quality] : ItemQualityColors[ITEM_QUALITY_NORMAL];
 
-    const char* color = (quality < 8) ? qualityColors[quality] : qualityColors[1];
-
-    // Format: |cCOLOR|Hitem:ENTRY:0:0:0:0:0:0:0:80|h[NAME]|h|r
-    return "|c" + std::string(color) + "|Hitem:" + std::to_string(entry) +
-           ":0:0:0:0:0:0:0:80|h[" + name + "]|h|r";
+    std::stringstream ss;
+    ss << "|c";
+    ss << std::hex << color << std::dec;
+    ss << "|Hitem:" << entry << ":0:0:0:0:0:0:0:0:0|h[" << name << "]|h|r";
+    return ss.str();
 }
 
 bool VipShop::TryPurchase(Player* player, uint32 itemEntry, uint32 price)
