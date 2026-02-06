@@ -4,6 +4,10 @@
 # mod-vip-system configuration
 ########################################
 
+###################################
+# General
+###################################
+
 #
 #   VipSystem.Enable
 #   Description: Enable or disable the VIP system module.
@@ -21,15 +25,6 @@ VipSystem.Enable = 1
 VipSystem.ItemEntry = 18154
 
 #
-#   VipSystem.ConsumeOffline
-#   Description: Whether the offline scanner should auto-consume tokens
-#                for offline players whose VIP has expired.
-#   Default: 1
-#
-
-VipSystem.ConsumeOffline = 1
-
-#
 #   VipSystem.DurationPerItem
 #   Description: Duration in seconds that one VIP Token grants.
 #                Default is 86400 (24 hours).
@@ -37,6 +32,19 @@ VipSystem.ConsumeOffline = 1
 #
 
 VipSystem.DurationPerItem = 86400
+
+###################################
+# Offline Scanner
+###################################
+
+#
+#   VipSystem.ConsumeOffline
+#   Description: Whether the offline scanner should auto-consume tokens
+#                for offline players whose VIP has expired.
+#   Default: 1
+#
+
+VipSystem.ConsumeOffline = 1
 
 #
 #   VipSystem.OfflineScanIntervalSec
@@ -63,6 +71,10 @@ VipSystem.MaxConsumptionsPerScan = 50
 #
 
 VipSystem.MaxConsumptionsPerLogin = 30
+
+###################################
+# VIP Benefits
+###################################
 
 #
 #   VipSystem.EnableTeleport
@@ -98,3 +110,17 @@ VipSystem.EnableBank = 1
 #
 
 VipSystem.EnableInstantLogout = 1
+
+###################################
+# VIP Shop
+###################################
+
+#
+#   VipSystem.ShopEnable
+#   Description: Enable or disable the VIP Shop NPC system.
+#                When enabled, VIP Shop NPCs allow players to buy
+#                endgame items using VIP tokens as currency.
+#   Default: 1
+#
+
+VipSystem.ShopEnable = 1

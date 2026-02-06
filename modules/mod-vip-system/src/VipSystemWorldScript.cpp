@@ -1,4 +1,5 @@
 #include "VipSystem.h"
+#include "VipShop.h"
 
 #include "WorldScript.h"
 
@@ -7,12 +8,24 @@ class VipSystemWorldScript : public WorldScript
 public:
     VipSystemWorldScript() : WorldScript("VipSystemWorldScript", {
         WORLDHOOK_ON_AFTER_CONFIG_LOAD,
+        WORLDHOOK_ON_STARTUP,
         WORLDHOOK_ON_UPDATE
     }) { }
 
-    void OnAfterConfigLoad(bool /*reload*/) override
+    void OnAfterConfigLoad(bool reload) override
     {
         sVipSystem->LoadConfig();
+        sVipShop->LoadConfig();
+
+        // On reload, item_template is already loaded, safe to reload shop
+        if (reload)
+            sVipShop->LoadFromDB();
+    }
+
+    void OnStartup() override
+    {
+        // item_template is fully loaded at this point
+        sVipShop->LoadFromDB();
     }
 
     void OnUpdate(uint32 diff) override
