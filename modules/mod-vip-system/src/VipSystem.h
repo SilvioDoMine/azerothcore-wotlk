@@ -22,6 +22,8 @@ struct VipSystemConfig
     // VIP benefits
     bool EnableTeleport = true;
     bool EnableBank = true;
+    bool EnableGuildBank = true;
+    bool EnableMail = true;
     bool EnableInstantLogout = true;
     uint32 TeleportCooldown = 300; // seconds
 };

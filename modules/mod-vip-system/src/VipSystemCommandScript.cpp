@@ -4,6 +4,7 @@
 #include "CommandScript.h"
 #include "DBCStores.h"
 #include "GameTime.h"
+#include "Guild.h"
 #include "ObjectMgr.h"
 #include "Player.h"
 
@@ -18,10 +19,12 @@ public:
     {
         static ChatCommandTable vipSubCommands =
         {
-            { "tele",   HandleVipTeleCommand,   SEC_PLAYER, Console::No },
-            { "bank",   HandleVipBankCommand,   SEC_PLAYER, Console::No },
-            { "logout", HandleVipLogoutCommand, SEC_PLAYER, Console::No },
-            { "",       HandleVipCommand,       SEC_PLAYER, Console::No }
+            { "tele",   HandleVipTeleCommand,      SEC_PLAYER, Console::No },
+            { "bank",   HandleVipBankCommand,      SEC_PLAYER, Console::No },
+            { "gbank",  HandleVipGuildBankCommand,  SEC_PLAYER, Console::No },
+            { "mail",   HandleVipMailCommand,       SEC_PLAYER, Console::No },
+            { "logout", HandleVipLogoutCommand,     SEC_PLAYER, Console::No },
+            { "",       HandleVipCommand,           SEC_PLAYER, Console::No }
         };
 
         static ChatCommandTable commandTable =
@@ -86,6 +89,10 @@ public:
                 handler->SendSysMessage("  .vip tele <nome> - Teleportar para um local");
             if (config.EnableBank)
                 handler->SendSysMessage("  .vip bank - Abrir o banco");
+            if (config.EnableGuildBank)
+                handler->SendSysMessage("  .vip gbank - Abrir o banco da guilda");
+            if (config.EnableMail)
+                handler->SendSysMessage("  .vip mail - Abrir a caixa de correio");
             if (config.EnableInstantLogout)
                 handler->SendSysMessage("  .vip logout - Logout instantaneo");
         }
@@ -200,6 +207,77 @@ public:
         }
 
         player->GetSession()->SendShowBank(player->GetGUID());
+        return true;
+    }
+
+    static bool HandleVipGuildBankCommand(ChatHandler* handler)
+    {
+        const auto& config = sVipSystem->GetConfig();
+
+        if (!config.Enabled)
+        {
+            handler->SendSysMessage("Sistema VIP desativado.");
+            return true;
+        }
+
+        if (!config.EnableGuildBank)
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Banco da guilda VIP desativado.");
+            return true;
+        }
+
+        Player* player = handler->GetSession()->GetPlayer();
+        if (!player)
+            return false;
+
+        uint32 guid = player->GetGUID().GetCounter();
+
+        if (!sVipSystem->IsVip(guid))
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao possui VIP ativo.");
+            return true;
+        }
+
+        Guild* guild = player->GetGuild();
+        if (!guild)
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao pertence a nenhuma guilda.");
+            return true;
+        }
+
+        guild->SendBankTabsInfo(player->GetSession(), true);
+        return true;
+    }
+
+    static bool HandleVipMailCommand(ChatHandler* handler)
+    {
+        const auto& config = sVipSystem->GetConfig();
+
+        if (!config.Enabled)
+        {
+            handler->SendSysMessage("Sistema VIP desativado.");
+            return true;
+        }
+
+        if (!config.EnableMail)
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Correio VIP desativado.");
+            return true;
+        }
+
+        Player* player = handler->GetSession()->GetPlayer();
+        if (!player)
+            return false;
+
+        uint32 guid = player->GetGUID().GetCounter();
+
+        if (!sVipSystem->IsVip(guid))
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao possui VIP ativo.");
+            return true;
+        }
+
+        player->GetSession()->SendShowMailBox(player->GetGUID());
         return true;
     }
 

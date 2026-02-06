@@ -28,6 +28,8 @@ void VipSystem::LoadConfig()
 
     _config.EnableTeleport       = sConfigMgr->GetOption<bool>("VipSystem.EnableTeleport", true);
     _config.EnableBank           = sConfigMgr->GetOption<bool>("VipSystem.EnableBank", true);
+    _config.EnableGuildBank      = sConfigMgr->GetOption<bool>("VipSystem.EnableGuildBank", true);
+    _config.EnableMail           = sConfigMgr->GetOption<bool>("VipSystem.EnableMail", true);
     _config.EnableInstantLogout  = sConfigMgr->GetOption<bool>("VipSystem.EnableInstantLogout", true);
     _config.TeleportCooldown     = sConfigMgr->GetOption<uint32>("VipSystem.TeleportCooldown", 300);
 
