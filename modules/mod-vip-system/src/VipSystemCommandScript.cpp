@@ -133,6 +133,12 @@ public:
             return true;
         }
 
+        if (player->InBattleground() || player->InArena())
+        {
+            handler->SendSysMessage("|cffff0000[VIP]|r Voce nao pode teleportar em battleground ou arena.");
+            return true;
+        }
+
         if (!sVipSystem->CanUseTeleport(guid))
         {
             uint64 remaining = sVipSystem->GetTeleportCooldownRemaining(guid);
