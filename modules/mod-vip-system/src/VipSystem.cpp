@@ -33,6 +33,12 @@ void VipSystem::LoadConfig()
     _config.EnableInstantLogout  = sConfigMgr->GetOption<bool>("VipSystem.EnableInstantLogout", true);
     _config.TeleportCooldown     = sConfigMgr->GetOption<uint32>("VipSystem.TeleportCooldown", 300);
 
+    _config.EnableServices           = sConfigMgr->GetOption<bool>("VipSystem.EnableServices", true);
+    _config.ServicePriceRename       = sConfigMgr->GetOption<uint32>("VipSystem.ServicePrice.Rename", 5);
+    _config.ServicePriceCustomize    = sConfigMgr->GetOption<uint32>("VipSystem.ServicePrice.Customize", 5);
+    _config.ServicePriceChangeRace   = sConfigMgr->GetOption<uint32>("VipSystem.ServicePrice.ChangeRace", 10);
+    _config.ServicePriceChangeFaction = sConfigMgr->GetOption<uint32>("VipSystem.ServicePrice.ChangeFaction", 15);
+
     LOG_INFO("module", "mod-vip-system: {} (ItemEntry={}, Duration={}s, OfflineScan={})",
         _config.Enabled ? "Enabled" : "Disabled",
         _config.ItemEntry, _config.DurationPerItem, _config.ConsumeOffline ? "On" : "Off");

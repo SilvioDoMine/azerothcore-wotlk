@@ -26,6 +26,13 @@ struct VipSystemConfig
     bool EnableMail = true;
     bool EnableInstantLogout = true;
     uint32 TeleportCooldown = 300; // seconds
+
+    // VIP services (character modifications)
+    bool EnableServices = true;
+    uint32 ServicePriceRename = 5;
+    uint32 ServicePriceCustomize = 5;
+    uint32 ServicePriceChangeRace = 10;
+    uint32 ServicePriceChangeFaction = 15;
 };
 
 class VipSystem

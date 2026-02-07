@@ -112,6 +112,53 @@ VipSystem.EnableBank = 1
 VipSystem.EnableInstantLogout = 1
 
 ###################################
+# VIP Services (Character Modifications)
+###################################
+
+#
+#   VipSystem.EnableServices
+#   Description: Enable or disable the VIP Services NPC.
+#                Allows players to buy character services (name change,
+#                race change, etc.) using VIP tokens.
+#   Default: 1
+#
+
+VipSystem.EnableServices = 1
+
+#
+#   VipSystem.ServicePrice.Rename
+#   Description: Price in VIP tokens (dias) for a name change.
+#   Default: 5
+#
+
+VipSystem.ServicePrice.Rename = 5
+
+#
+#   VipSystem.ServicePrice.Customize
+#   Description: Price in VIP tokens (dias) for appearance customization.
+#   Default: 5
+#
+
+VipSystem.ServicePrice.Customize = 5
+
+#
+#   VipSystem.ServicePrice.ChangeRace
+#   Description: Price in VIP tokens (dias) for a race change
+#                (same faction only).
+#   Default: 10
+#
+
+VipSystem.ServicePrice.ChangeRace = 10
+
+#
+#   VipSystem.ServicePrice.ChangeFaction
+#   Description: Price in VIP tokens (dias) for a faction change.
+#   Default: 15
+#
+
+VipSystem.ServicePrice.ChangeFaction = 15
+
+###################################
 # VIP Shop
 ###################################
 
