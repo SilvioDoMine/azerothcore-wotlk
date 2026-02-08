@@ -4,6 +4,7 @@ void AddVipSystemWorldScript();
 void AddVipSystemCommandScript();
 void AddVipShopCreatureScript();
 void AddVipServicesCreatureScript();
+void AddVipRecipeShopCreatureScript();
 
 // Called by AzerothCore module auto-loader (name derived from module folder)
 void Addmod_vip_systemScripts()
@@ -13,4 +14,5 @@ void Addmod_vip_systemScripts()
     AddVipSystemCommandScript();
     AddVipShopCreatureScript();
     AddVipServicesCreatureScript();
+    AddVipRecipeShopCreatureScript();
 }

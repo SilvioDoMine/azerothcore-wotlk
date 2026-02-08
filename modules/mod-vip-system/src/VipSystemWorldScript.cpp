@@ -1,5 +1,6 @@
 #include "VipSystem.h"
 #include "VipShop.h"
+#include "VipRecipeShop.h"
 
 #include "WorldScript.h"
 
@@ -16,16 +17,21 @@ public:
     {
         sVipSystem->LoadConfig();
         sVipShop->LoadConfig();
+        sVipRecipeShop->LoadConfig();
 
         // On reload, item_template is already loaded, safe to reload shop
         if (reload)
+        {
             sVipShop->LoadFromDB();
+            sVipRecipeShop->LoadFromDB();
+        }
     }
 
     void OnStartup() override
     {
         // item_template is fully loaded at this point
         sVipShop->LoadFromDB();
+        sVipRecipeShop->LoadFromDB();
     }
 
     void OnUpdate(uint32 diff) override

@@ -171,3 +171,17 @@ VipSystem.ServicePrice.ChangeFaction = 15
 #
 
 VipSystem.ShopEnable = 1
+
+###################################
+# VIP Recipe Shop
+###################################
+
+#
+#   VipSystem.RecipeShopEnable
+#   Description: Enable or disable the VIP Recipe Shop NPC.
+#                When enabled, the Recipe Shop NPC allows players to buy
+#                profession recipes (skill 300+) using VIP tokens.
+#   Default: 1
+#
+
+VipSystem.RecipeShopEnable = 1
