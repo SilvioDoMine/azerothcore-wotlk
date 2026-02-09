@@ -117,6 +117,12 @@ std::vector<VipShopItem const*> VipShop::GetFilteredItems(uint8 vendorType, Play
             continue;
         }
 
+        // Check faction restriction (Flags2 / FlagsExtra)
+        if (proto->HasFlag2(ITEM_FLAG2_FACTION_HORDE) && player->GetTeamId() != TEAM_HORDE)
+            continue;
+        if (proto->HasFlag2(ITEM_FLAG2_FACTION_ALLIANCE) && player->GetTeamId() != TEAM_ALLIANCE)
+            continue;
+
         // Equipment: check class and race only (ignore level/skill requirements)
         if ((proto->AllowableClass & player->getClassMask()) && (proto->AllowableRace & player->getRaceMask()))
             result.push_back(&item);

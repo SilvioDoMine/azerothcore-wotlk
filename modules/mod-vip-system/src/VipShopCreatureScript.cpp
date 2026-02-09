@@ -3,6 +3,7 @@
 
 #include "Chat.h"
 #include "CreatureScript.h"
+#include "DBCStores.h"
 #include "GossipDef.h"
 #include "ObjectMgr.h"
 #include "Player.h"
@@ -11,8 +12,7 @@
 enum VipShopSender
 {
     SENDER_ITEM_LIST   = 1,
-    SENDER_ITEM_DETAIL = 2,
-    SENDER_CONFIRM     = 3
+    SENDER_ITEM_DETAIL = 2
 };
 
 enum VipShopAction
@@ -20,9 +20,7 @@ enum VipShopAction
     ACTION_NEXT_PAGE = 9990,
     ACTION_PREV_PAGE = 9991,
     ACTION_BUY       = 9992,
-    ACTION_BACK      = 9993,
-    ACTION_CONFIRM   = 9994,
-    ACTION_CANCEL    = 9995
+    ACTION_BACK      = 9993
 };
 
 static constexpr uint32 ITEMS_PER_PAGE = 28;
@@ -99,9 +97,6 @@ public:
             case SENDER_ITEM_DETAIL:
                 HandleItemDetailAction(player, creature, state, action);
                 break;
-            case SENDER_CONFIRM:
-                HandleConfirmAction(player, creature, state, action);
-                break;
             default:
                 CloseGossipMenuFor(player);
                 break;
@@ -127,11 +122,20 @@ private:
         for (uint32 i = startIndex; i < endIndex; ++i)
         {
             VipShopItem const* item = state.filteredItems[i];
-            std::string label = VipShop::BuildItemLink(item->itemEntry, item->name, item->quality)
+
+            // Build icon texture from item's display info
+            std::string iconText;
+            ItemTemplate const* itemTemplate = sObjectMgr->GetItemTemplate(item->itemEntry);
+            if (itemTemplate)
+            {
+                ItemDisplayInfoEntry const* displayInfo = sItemDisplayInfoStore.LookupEntry(itemTemplate->DisplayInfoID);
+                if (displayInfo && displayInfo->inventoryIcon)
+                    iconText = "|TInterface\\icons\\" + std::string(displayInfo->inventoryIcon) + ":40:40:-18|t ";
+            }
+
+            std::string label = iconText
+                + VipShop::BuildItemLink(item->itemEntry, item->name, item->quality)
                 + " - " + std::to_string(item->price) + " dia(s)";
-            // Debug: log label to server log and also send to player chat for verification
-            LOG_INFO("module", "mod-vip-system: gossip label='{}'", label);
-            ChatHandler(player->GetSession()).PSendSysMessage("[Loja VIP] Opcao: {}", label);
             AddGossipItemFor(player, GOSSIP_ICON_VENDOR, label,
                 SENDER_ITEM_LIST, i - startIndex);
         }
@@ -191,8 +195,36 @@ private:
         ClearGossipMenuFor(player);
 
         std::string buyLabel = "Comprar por " + std::to_string(item->price) + " dia(s) VIP";
+
+        // Build token icon + link (the VIP currency item from config)
+        std::string tokenLink;
+        uint32 tokenEntry = sVipSystem->GetConfig().ItemEntry;
+        ItemTemplate const* tokenTemplate = sObjectMgr->GetItemTemplate(tokenEntry);
+        if (tokenTemplate)
+        {
+            std::string tokenIcon;
+            ItemDisplayInfoEntry const* tokenDisplay = sItemDisplayInfoStore.LookupEntry(tokenTemplate->DisplayInfoID);
+            if (tokenDisplay && tokenDisplay->inventoryIcon)
+                tokenIcon = "|TInterface\\icons\\" + std::string(tokenDisplay->inventoryIcon) + ":20:20:-5|t ";
+            tokenLink = tokenIcon + VipShop::BuildItemLink(tokenEntry, tokenTemplate->Name1, tokenTemplate->Quality);
+        }
+
+        // Build popup with item icon (small for popup) + item link
+        std::string iconText;
+        ItemTemplate const* itemTemplate = sObjectMgr->GetItemTemplate(item->itemEntry);
+        if (itemTemplate)
+        {
+            ItemDisplayInfoEntry const* displayInfo = sItemDisplayInfoStore.LookupEntry(itemTemplate->DisplayInfoID);
+            if (displayInfo && displayInfo->inventoryIcon)
+                iconText = "|TInterface\\icons\\" + std::string(displayInfo->inventoryIcon) + ":20:20:-5|t ";
+        }
+
+        std::string itemLink = VipShop::BuildItemLink(item->itemEntry, item->name, item->quality);
+        std::string popupText = "Voce ira gastar " + std::to_string(item->price)
+            + "x " + tokenLink + " por:\n\n" + iconText + itemLink + "\n\nDeseja continuar?";
+
         AddGossipItemFor(player, GOSSIP_ICON_VENDOR, buyLabel,
-            SENDER_ITEM_DETAIL, ACTION_BUY);
+            SENDER_ITEM_DETAIL, ACTION_BUY, popupText, 0, false);
 
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "<< Voltar",
             SENDER_ITEM_DETAIL, ACTION_BACK);
@@ -210,46 +242,7 @@ private:
 
         if (action == ACTION_BUY)
         {
-            ShowConfirmation(player, creature, state);
-            return;
-        }
-
-        CloseGossipMenuFor(player);
-    }
-
-    void ShowConfirmation(Player* player, Creature* creature, VipShopPlayerState& state)
-    {
-        VipShopItem const* item = state.filteredItems[state.selectedItemIndex];
-        uint32 tokenEntry = sVipSystem->GetConfig().ItemEntry;
-        uint32 tokenCount = player->GetItemCount(tokenEntry, false);
-
-        ClearGossipMenuFor(player);
-
-        ChatHandler(player->GetSession()).PSendSysMessage(
-            "|cffffcc00[Loja VIP]|r Confirmar: Gastar {} dia(s) VIP por {}? (Voce tem {} tokens)",
-            item->price,
-            VipShop::BuildItemLink(item->itemEntry, item->name, item->quality),
-            tokenCount);
-
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "Confirmar Compra",
-            SENDER_CONFIRM, ACTION_CONFIRM);
-
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "Cancelar",
-            SENDER_CONFIRM, ACTION_CANCEL);
-
-        SendGossipMenuFor(player, NPC_TEXT_ID, creature->GetGUID());
-    }
-
-    void HandleConfirmAction(Player* player, Creature* creature, VipShopPlayerState& state, uint32 action)
-    {
-        if (action == ACTION_CANCEL)
-        {
-            ShowItemList(player, creature);
-            return;
-        }
-
-        if (action == ACTION_CONFIRM)
-        {
+            // Player already confirmed via popup — execute purchase
             if (state.selectedItemIndex >= state.filteredItems.size())
             {
                 CloseGossipMenuFor(player);
