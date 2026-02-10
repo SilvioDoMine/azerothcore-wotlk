@@ -1,5 +1,6 @@
 -- ============================================================
 -- VIP Shop System - Tables, NPCs and Items
+-- Generated automated script
 -- ============================================================
 
 -- ============================================================
@@ -28,440 +29,1570 @@ INSERT INTO `npc_text` (`ID`, `text0_0`, `text0_1`, `BroadcastTextID0`, `lang0`,
 (200001, 'Bem-vindo a Loja VIP! Selecione um item para visualizar detalhes e comprar com seus dias VIP.', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ============================================================
--- Creature Templates (NPCs)
--- npcflag=1 (GOSSIP), ScriptName='npc_vip_shop'
--- type=7 (Humanoid), rank=0 (Normal), flags_extra=16777216 (CREATURE_FLAG_EXTRA_NO_XP)
+-- Deletions
 -- ============================================================
 
+-- Delete Old Shop NPCs (200001-200013)
 DELETE FROM `creature_template` WHERE `entry` BETWEEN 200001 AND 200013;
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-(200001, 0, 0, 0, 0, 0, 'Loja VIP', 'Armas',                '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200002, 0, 0, 0, 0, 0, 'Loja VIP', 'Elmos',                '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200003, 0, 0, 0, 0, 0, 'Loja VIP', 'Ombros',               '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200004, 0, 0, 0, 0, 0, 'Loja VIP', 'Peitorais',            '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200005, 0, 0, 0, 0, 0, 'Loja VIP', 'Pernas',               '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200006, 0, 0, 0, 0, 0, 'Loja VIP', 'Pes',                  '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200007, 0, 0, 0, 0, 0, 'Loja VIP', 'Maos',                 '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200008, 0, 0, 0, 0, 0, 'Loja VIP', 'Pulsos',               '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200009, 0, 0, 0, 0, 0, 'Loja VIP', 'Cintura',              '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200010, 0, 0, 0, 0, 0, 'Loja VIP', 'Capas',                '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200011, 0, 0, 0, 0, 0, 'Loja VIP', 'Aneis/Amuletos/Trinkets', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200012, 0, 0, 0, 0, 0, 'Loja VIP', 'Consumiveis',          '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
-(200013, 0, 0, 0, 0, 0, 'Loja VIP', 'Escudos/Off-hands',    '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0);
-
--- ============================================================
--- Creature Template Models (DisplayID)
--- Todos usam model 18786 (Human Female Vendor look)
--- ============================================================
-
 DELETE FROM `creature_template_model` WHERE `CreatureID` BETWEEN 200001 AND 200013;
+DELETE FROM `mod_vip_shop_npc` WHERE `creature_entry` BETWEEN 200001 AND 200013;
+DELETE FROM `mod_vip_shop` WHERE `vendor_type` BETWEEN 1 AND 13;
+
+-- Delete New Shop Range (Avoiding Services/Recipe NPCs 200014, 200015)
+DELETE FROM `creature_template` WHERE `entry` BETWEEN 200020 AND 200071;
+DELETE FROM `creature_template_model` WHERE `CreatureID` BETWEEN 200020 AND 200071;
+DELETE FROM `mod_vip_shop_npc` WHERE `creature_entry` BETWEEN 200020 AND 200071;
+DELETE FROM `mod_vip_shop` WHERE `vendor_type` BETWEEN 20 AND 71;
+
+-- ============================================================
+-- Creature Templates (NPCs)
+-- ============================================================
+
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+(200020, 0, 0, 0, 0, 0, 'Loja VIP', 'Bows', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200021, 0, 0, 0, 0, 0, 'Loja VIP', 'Crossbows', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200022, 0, 0, 0, 0, 0, 'Loja VIP', 'Daggers', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200023, 0, 0, 0, 0, 0, 'Loja VIP', 'Fist Weapons', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200024, 0, 0, 0, 0, 0, 'Loja VIP', 'Guns', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200025, 0, 0, 0, 0, 0, 'Loja VIP', 'One-handed axes', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200026, 0, 0, 0, 0, 0, 'Loja VIP', 'One-handed maces', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200027, 0, 0, 0, 0, 0, 'Loja VIP', 'One-handed swords', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200028, 0, 0, 0, 0, 0, 'Loja VIP', 'Polearms', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200029, 0, 0, 0, 0, 0, 'Loja VIP', 'Shields', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200030, 0, 0, 0, 0, 0, 'Loja VIP', 'Staves', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200031, 0, 0, 0, 0, 0, 'Loja VIP', 'Trown', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200032, 0, 0, 0, 0, 0, 'Loja VIP', 'Two-handed axes', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200033, 0, 0, 0, 0, 0, 'Loja VIP', 'Two-handed maces', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200034, 0, 0, 0, 0, 0, 'Loja VIP', 'Two-handed swords', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200035, 0, 0, 0, 0, 0, 'Loja VIP', 'Wands', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200036, 0, 0, 0, 0, 0, 'Loja VIP', 'Fishing pole', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200037, 0, 0, 0, 0, 0, 'Loja VIP', 'Blue', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200038, 0, 0, 0, 0, 0, 'Loja VIP', 'Green', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200039, 0, 0, 0, 0, 0, 'Loja VIP', 'Meta', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200040, 0, 0, 0, 0, 0, 'Loja VIP', 'Orange', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200041, 0, 0, 0, 0, 0, 'Loja VIP', 'Prismatic', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200042, 0, 0, 0, 0, 0, 'Loja VIP', 'Purple', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200043, 0, 0, 0, 0, 0, 'Loja VIP', 'Red', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200044, 0, 0, 0, 0, 0, 'Loja VIP', 'Yellow', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200045, 0, 0, 0, 0, 0, 'Loja VIP', 'Chest', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200046, 0, 0, 0, 0, 0, 'Loja VIP', 'Cloaks', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200047, 0, 0, 0, 0, 0, 'Loja VIP', 'Feet', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200048, 0, 0, 0, 0, 0, 'Loja VIP', 'Hands', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200049, 0, 0, 0, 0, 0, 'Loja VIP', 'Head', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200050, 0, 0, 0, 0, 0, 'Loja VIP', 'Legs', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200051, 0, 0, 0, 0, 0, 'Loja VIP', 'Neck', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200052, 0, 0, 0, 0, 0, 'Loja VIP', 'Off-hands', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200053, 0, 0, 0, 0, 0, 'Loja VIP', 'Relics', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200054, 0, 0, 0, 0, 0, 'Loja VIP', 'Rings', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200055, 0, 0, 0, 0, 0, 'Loja VIP', 'Shoulder', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200056, 0, 0, 0, 0, 0, 'Loja VIP', 'Tabards', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200057, 0, 0, 0, 0, 0, 'Loja VIP', 'Trinkets', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200058, 0, 0, 0, 0, 0, 'Loja VIP', 'Waist', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200059, 0, 0, 0, 0, 0, 'Loja VIP', 'Wrist', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200060, 0, 0, 0, 0, 0, 'Loja VIP', 'Pets e misc', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200061, 0, 0, 0, 0, 0, 'Loja VIP', 'Fly mounts', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200062, 0, 0, 0, 0, 0, 'Loja VIP', 'Mount terrestre', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200063, 0, 0, 0, 0, 0, 'Loja VIP', 'Alchemy', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200064, 0, 0, 0, 0, 0, 'Loja VIP', 'Blacksmithing', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200065, 0, 0, 0, 0, 0, 'Loja VIP', 'Books', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200066, 0, 0, 0, 0, 0, 'Loja VIP', 'Cooking', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200067, 0, 0, 0, 0, 0, 'Loja VIP', 'Enchanting', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200068, 0, 0, 0, 0, 0, 'Loja VIP', 'Engineering', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200069, 0, 0, 0, 0, 0, 'Loja VIP', 'Jewelcrafting', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200070, 0, 0, 0, 0, 0, 'Loja VIP', 'Leatherworking', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0),
+(200071, 0, 0, 0, 0, 0, 'Loja VIP', 'Tailoring', '', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 2, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'npc_vip_shop', 0);
+
+-- ============================================================
+-- Creature Template Models
+-- ============================================================
+
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
-(200001, 0, 18786, 1, 1, 12340),
-(200002, 0, 18786, 1, 1, 12340),
-(200003, 0, 18786, 1, 1, 12340),
-(200004, 0, 18786, 1, 1, 12340),
-(200005, 0, 18786, 1, 1, 12340),
-(200006, 0, 18786, 1, 1, 12340),
-(200007, 0, 18786, 1, 1, 12340),
-(200008, 0, 18786, 1, 1, 12340),
-(200009, 0, 18786, 1, 1, 12340),
-(200010, 0, 18786, 1, 1, 12340),
-(200011, 0, 18786, 1, 1, 12340),
-(200012, 0, 18786, 1, 1, 12340),
-(200013, 0, 18786, 1, 1, 12340);
+(200020, 0, 18786, 1, 1, 0),
+(200021, 0, 18786, 1, 1, 0),
+(200022, 0, 18786, 1, 1, 0),
+(200023, 0, 18786, 1, 1, 0),
+(200024, 0, 18786, 1, 1, 0),
+(200025, 0, 18786, 1, 1, 0),
+(200026, 0, 18786, 1, 1, 0),
+(200027, 0, 18786, 1, 1, 0),
+(200028, 0, 18786, 1, 1, 0),
+(200029, 0, 18786, 1, 1, 0),
+(200030, 0, 18786, 1, 1, 0),
+(200031, 0, 18786, 1, 1, 0),
+(200032, 0, 18786, 1, 1, 0),
+(200033, 0, 18786, 1, 1, 0),
+(200034, 0, 18786, 1, 1, 0),
+(200035, 0, 18786, 1, 1, 0),
+(200036, 0, 18786, 1, 1, 0),
+(200037, 0, 18786, 1, 1, 0),
+(200038, 0, 18786, 1, 1, 0),
+(200039, 0, 18786, 1, 1, 0),
+(200040, 0, 18786, 1, 1, 0),
+(200041, 0, 18786, 1, 1, 0),
+(200042, 0, 18786, 1, 1, 0),
+(200043, 0, 18786, 1, 1, 0),
+(200044, 0, 18786, 1, 1, 0),
+(200045, 0, 18786, 1, 1, 0),
+(200046, 0, 18786, 1, 1, 0),
+(200047, 0, 18786, 1, 1, 0),
+(200048, 0, 18786, 1, 1, 0),
+(200049, 0, 18786, 1, 1, 0),
+(200050, 0, 18786, 1, 1, 0),
+(200051, 0, 18786, 1, 1, 0),
+(200052, 0, 18786, 1, 1, 0),
+(200053, 0, 18786, 1, 1, 0),
+(200054, 0, 18786, 1, 1, 0),
+(200055, 0, 18786, 1, 1, 0),
+(200056, 0, 18786, 1, 1, 0),
+(200057, 0, 18786, 1, 1, 0),
+(200058, 0, 18786, 1, 1, 0),
+(200059, 0, 18786, 1, 1, 0),
+(200060, 0, 18786, 1, 1, 0),
+(200061, 0, 18786, 1, 1, 0),
+(200062, 0, 18786, 1, 1, 0),
+(200063, 0, 18786, 1, 1, 0),
+(200064, 0, 18786, 1, 1, 0),
+(200065, 0, 18786, 1, 1, 0),
+(200066, 0, 18786, 1, 1, 0),
+(200067, 0, 18786, 1, 1, 0),
+(200068, 0, 18786, 1, 1, 0),
+(200069, 0, 18786, 1, 1, 0),
+(200070, 0, 18786, 1, 1, 0),
+(200071, 0, 18786, 1, 1, 0);
 
 -- ============================================================
 -- NPC -> Vendor Type Mapping
 -- ============================================================
 
-DELETE FROM `mod_vip_shop_npc` WHERE `creature_entry` BETWEEN 200001 AND 200013;
 INSERT INTO `mod_vip_shop_npc` (`creature_entry`, `vendor_type`) VALUES
-(200001, 1),  -- Armas
-(200002, 2),  -- Elmos
-(200003, 3),  -- Ombros
-(200004, 4),  -- Peitorais
-(200005, 5),  -- Pernas
-(200006, 6),  -- Pes
-(200007, 7),  -- Maos
-(200008, 8),  -- Pulsos
-(200009, 9),  -- Cintura
-(200010, 10), -- Capas
-(200011, 11), -- Aneis/Amuletos/Trinkets
-(200012, 12), -- Consumiveis
-(200013, 13); -- Escudos/Off-hands
+(200020, 20), -- Bows
+(200021, 21), -- Crossbows
+(200022, 22), -- Daggers
+(200023, 23), -- Fist Weapons
+(200024, 24), -- Guns
+(200025, 25), -- One-handed axes
+(200026, 26), -- One-handed maces
+(200027, 27), -- One-handed swords
+(200028, 28), -- Polearms
+(200029, 29), -- Shields
+(200030, 30), -- Staves
+(200031, 31), -- Trown
+(200032, 32), -- Two-handed axes
+(200033, 33), -- Two-handed maces
+(200034, 34), -- Two-handed swords
+(200035, 35), -- Wands
+(200036, 36), -- Fishing pole
+(200037, 37), -- Blue
+(200038, 38), -- Green
+(200039, 39), -- Meta
+(200040, 40), -- Orange
+(200041, 41), -- Prismatic
+(200042, 42), -- Purple
+(200043, 43), -- Red
+(200044, 44), -- Yellow
+(200045, 45), -- Chest
+(200046, 46), -- Cloaks
+(200047, 47), -- Feet
+(200048, 48), -- Hands
+(200049, 49), -- Head
+(200050, 50), -- Legs
+(200051, 51), -- Neck
+(200052, 52), -- Off-hands
+(200053, 53), -- Relics
+(200054, 54), -- Rings
+(200055, 55), -- Shoulder
+(200056, 56), -- Tabards
+(200057, 57), -- Trinkets
+(200058, 58), -- Waist
+(200059, 59), -- Wrist
+(200060, 60), -- Pets e misc
+(200061, 61), -- Fly mounts
+(200062, 62), -- Mount terrestre
+(200063, 63), -- Alchemy
+(200064, 64), -- Blacksmithing
+(200065, 65), -- Books
+(200066, 66), -- Cooking
+(200067, 67), -- Enchanting
+(200068, 68), -- Engineering
+(200069, 69), -- Jewelcrafting
+(200070, 70), -- Leatherworking
+(200071, 71); -- Tailoring
 
 -- ============================================================
 -- Shop Items
--- Prices: ilvl 277-284 = 5-7 dias, ilvl 264 = 3-4 dias,
---         ilvl 245-271 = 2-3 dias, Consumiveis = 1 dia
 -- ============================================================
 
-DELETE FROM `mod_vip_shop` WHERE `vendor_type` BETWEEN 1 AND 13;
-
--- ============================================================
--- Type 1: Armas (Weapons)
--- ============================================================
 INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- ICC 25H (ilvl 284) - 7 dias
-(1, 50738, 7),  -- Mithrios, Bronzebeard's Legacy (1H Sword)
-(1, 50736, 7),  -- Heaven's Fall, Kryss of a Thousand Lies (1H Dagger)
-(1, 50737, 7),  -- Havoc's Call, Blade of Lordaeron Kings (1H Sword)
-(1, 50731, 7),  -- Archus, Greatstaff of Antonidas (Staff)
-(1, 50735, 7),  -- Oathbinder, Charge of the Ranger-General (Polearm)
-(1, 50730, 7),  -- Glorenzelg, High-Blade of the Silver Hand (2H Sword)
-(1, 50734, 7),  -- Royal Scepter of Terenas II (Wand)
-(1, 50732, 7),  -- Bloodsurge, Kel'Thuzad's Blade of Agony (Wand)
-(1, 50733, 7),  -- Fal'inrush, Defender of Quel'thalas (Crossbow)
--- ICC 25H (ilvl 277) - 5 dias
-(1, 50708, 5),  -- Last Word (1H Sword)
-(1, 50641, 5),  -- Heartpierce (1H Dagger)
-(1, 50621, 5),  -- Lungbreaker (1H Mace)
-(1, 50672, 5),  -- Bloodvenom Blade (1H Dagger)
-(1, 50676, 5),  -- Rib Spreader (1H Axe)
-(1, 50654, 5),  -- Scourgeborne Waraxe (1H Axe)
-(1, 50603, 5),  -- Cryptmaker (2H Mace)
-(1, 50709, 5),  -- Bryntroll, the Bone Arbiter (2H Axe)
-(1, 50725, 5),  -- Dying Light (Staff)
-(1, 50648, 5),  -- Nibelung (Staff)
-(1, 50727, 5),  -- Bloodfall (Polearm)
-(1, 50695, 5),  -- Distant Land (Staff)
-(1, 50685, 5),  -- Trauma (Wand)
-(1, 50638, 5);  -- Zod's Repeating Longbow (Bow)
-
--- ============================================================
--- Type 2: Elmos (Head)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- ICC 25H (ilvl 277) - 5 dias
-(2, 50713, 5),  -- Geistlord's Punishment Sack
-(2, 51221, 5),  -- Sanctified Ymirjar Lord's Greathelm (Warrior)
-(2, 51281, 5),  -- Sanctified Bloodmage Hood (Mage)
-(2, 51312, 5),  -- Sanctified Scourgelord Helmet (DK DPS)
-(2, 51286, 5),  -- Sanctified Ahn'Kahar Blood Hunter's Headpiece (Hunter)
-(2, 51302, 5),  -- Sanctified Lasherweave Helmet (Druid Balance)
-(2, 51306, 5),  -- Sanctified Scourgelord Faceguard (DK Tank)
-(2, 51227, 5),  -- Sanctified Ymirjar Lord's Helmet (Warrior)
-(2, 51255, 5),  -- Sanctified Crimson Acolyte Cowl (Priest Shadow)
-(2, 51272, 5),  -- Sanctified Lightsworn Headpiece (Paladin Holy)
-(2, 51277, 5),  -- Sanctified Lightsworn Helmet (Paladin Ret)
-(2, 51261, 5),  -- Sanctified Crimson Acolyte Hood (Priest Heal)
-(2, 51231, 5),  -- Sanctified Dark Coven Hood (Warlock)
-(2, 51242, 5),  -- Sanctified Frost Witch's Faceguard (Shaman Resto)
-(2, 51252, 5),  -- Sanctified Shadowblade Helmet (Rogue)
-(2, 51296, 5),  -- Sanctified Lasherweave Headguard (Druid Feral)
-(2, 51266, 5),  -- Sanctified Lightsworn Faceguard (Paladin Tank)
-(2, 51237, 5),  -- Sanctified Frost Witch's Helm (Shaman Ele)
-(2, 51290, 5),  -- Sanctified Lasherweave Cover (Druid Resto)
-(2, 51247, 5),  -- Sanctified Frost Witch's Headpiece (Shaman Enh)
-(2, 50712, 5),  -- Landsoul's Horned Greathelm
-(2, 50605, 5),  -- Snowserpent Mail Helm
-(2, 50626, 5),  -- Snowstorm Helm
-(2, 50640, 5),  -- Broken Ram Skull Helm
-(2, 50679, 5),  -- Helm of the Elder Moon
-(2, 50701, 5);  -- Faceplate of the Forgotten
-
--- ============================================================
--- Type 3: Ombros (Shoulders)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- ICC 25H (ilvl 277) - 5 dias
-(3, 50698, 5),  -- Horrific Flesh Epaulets
-(3, 51224, 5),  -- Sanctified Ymirjar Lord's Pauldrons (Warrior)
-(3, 51284, 5),  -- Sanctified Bloodmage Shoulderpads (Mage)
-(3, 51314, 5),  -- Sanctified Scourgelord Shoulderplates (DK DPS)
-(3, 51288, 5),  -- Sanctified Ahn'Kahar Blood Hunter's Spaulders (Hunter)
-(3, 51304, 5),  -- Sanctified Lasherweave Pauldrons (Druid Balance)
-(3, 51309, 5),  -- Sanctified Scourgelord Pauldrons (DK Tank)
-(3, 51229, 5),  -- Sanctified Ymirjar Lord's Shoulderplates (Warrior)
-(3, 51257, 5),  -- Sanctified Crimson Acolyte Mantle (Priest Shadow)
-(3, 51273, 5),  -- Sanctified Lightsworn Spaulders (Paladin Holy)
-(3, 51279, 5),  -- Sanctified Lightsworn Shoulderplates (Paladin Ret)
-(3, 51264, 5),  -- Sanctified Crimson Acolyte Shoulderpads (Priest Heal)
-(3, 51235, 5),  -- Sanctified Frost Witch's Shoulderpads (Shaman Ele)
-(3, 51254, 5),  -- Sanctified Shadowblade Pauldrons (Rogue)
-(3, 51299, 5),  -- Sanctified Lasherweave Shoulderpads (Druid Feral)
-(3, 51269, 5),  -- Sanctified Lightsworn Shoulderguards (Paladin Tank)
-(3, 51245, 5),  -- Sanctified Frost Witch's Spaulders (Shaman Enh)
-(3, 51292, 5),  -- Sanctified Lasherweave Mantle (Druid Resto)
-(3, 51240, 5),  -- Sanctified Frost Witch's Shoulderguards (Shaman Resto)
-(3, 51234, 5),  -- Sanctified Dark Coven Shoulderpads (Warlock)
-(3, 50715, 5),  -- Shoulders of Frost-Tipped Thorns
-(3, 50674, 5),  -- Raging Behemoth's Shoulderplates
-(3, 50617, 5),  -- Rusted Bonespike Pauldrons
-(3, 50643, 5),  -- Shoulders of Mercy Killing
-(3, 50673, 5);  -- Dual-Bladed Pauldrons
-
--- ============================================================
--- Type 4: Peitorais (Chest)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- ICC 25H (ilvl 277) - 5 dias
-(4, 50689, 5),  -- Carapace of Forgotten Kings
-(4, 51220, 5),  -- Sanctified Ymirjar Lord's Breastplate (Warrior Prot)
-(4, 51275, 5),  -- Sanctified Lightsworn Battleplate (Paladin Ret)
-(4, 51305, 5),  -- Sanctified Scourgelord Chestguard (DK Tank)
-(4, 51310, 5),  -- Sanctified Scourgelord Battleplate (DK DPS)
-(4, 51283, 5),  -- Sanctified Bloodmage Robe (Mage)
-(4, 51298, 5),  -- Sanctified Lasherweave Raiment (Druid Resto)
-(4, 51300, 5),  -- Sanctified Lasherweave Robes (Druid Balance)
-(4, 51225, 5),  -- Sanctified Ymirjar Lord's Battleplate (Warrior DPS)
-(4, 51250, 5),  -- Sanctified Shadowblade Breastplate (Rogue)
-(4, 51265, 5),  -- Sanctified Lightsworn Chestguard (Paladin Tank)
-(4, 51274, 5),  -- Sanctified Lightsworn Tunic (Paladin Holy)
-(4, 51239, 5),  -- Sanctified Frost Witch's Hauberk (Shaman Enh)
-(4, 51259, 5),  -- Sanctified Crimson Acolyte Raiments (Priest Shadow)
-(4, 51233, 5),  -- Sanctified Dark Coven Robe (Warlock)
-(4, 51244, 5),  -- Sanctified Frost Witch's Chestguard (Shaman Resto)
-(4, 51289, 5),  -- Sanctified Ahn'Kahar Blood Hunter's Tunic (Hunter)
-(4, 51249, 5),  -- Sanctified Frost Witch's Tunic (Shaman Ele)
-(4, 51263, 5),  -- Sanctified Crimson Acolyte Robe (Priest Heal)
-(4, 51294, 5),  -- Sanctified Lasherweave Vestment (Druid Feral)
-(4, 50723, 5),  -- Mail of Crimson Coins
-(4, 50717, 5),  -- Sanguine Silk Robes
-(4, 50681, 5),  -- Blightborne Warplate
-(4, 50680, 5),  -- Rot-Resistant Breastplate
-(4, 50656, 5);  -- Ikfirus's Sack of Wonder
-
--- ============================================================
--- Type 5: Pernas (Legs)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- ICC 25H (ilvl 277) - 5 dias
-(5, 50697, 5),  -- Gangrenous Leggings
-(5, 50696, 5),  -- Leather of Stitched Scourge Parts
-(5, 51228, 5),  -- Sanctified Ymirjar Lord's Legplates (Warrior DPS)
-(5, 51223, 5),  -- Sanctified Ymirjar Lord's Legguards (Warrior Prot)
-(5, 51271, 5),  -- Sanctified Lightsworn Greaves (Paladin Holy)
-(5, 51308, 5),  -- Sanctified Scourgelord Legguards (DK Tank)
-(5, 51313, 5),  -- Sanctified Scourgelord Legplates (DK DPS)
-(5, 51278, 5),  -- Sanctified Lightsworn Legplates (Paladin Ret)
-(5, 51293, 5),  -- Sanctified Lasherweave Trousers (Druid Resto)
-(5, 51241, 5),  -- Sanctified Frost Witch's War-Kilt (Shaman Resto)
-(5, 51232, 5),  -- Sanctified Dark Coven Leggings (Warlock)
-(5, 51303, 5),  -- Sanctified Lasherweave Legplates (Druid Balance)
-(5, 51282, 5),  -- Sanctified Bloodmage Leggings (Mage)
-(5, 51236, 5),  -- Sanctified Frost Witch's Kilt (Shaman Ele)
-(5, 51258, 5),  -- Sanctified Crimson Acolyte Pants (Priest Shadow)
-(5, 51268, 5),  -- Sanctified Lightsworn Legguards (Paladin Tank)
-(5, 51246, 5),  -- Sanctified Frost Witch's Legguards (Shaman Enh)
-(5, 51297, 5),  -- Sanctified Lasherweave Legguards (Druid Feral)
-(5, 51253, 5),  -- Sanctified Shadowblade Legplates (Rogue)
-(5, 51262, 5),  -- Sanctified Crimson Acolyte Leggings (Priest Heal)
-(5, 51287, 5),  -- Sanctified Ahn'Kahar Blood Hunter's Legguards (Hunter)
-(5, 50694, 5),  -- Plaguebringer's Stained Pants
-(5, 50645, 5),  -- Leggings of Northern Lights
-(5, 50624, 5),  -- Scourge Reaver's Legplates
-(5, 50612, 5);  -- Legguards of Lost Hope
-
--- ============================================================
--- Type 6: Pes (Feet)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- Crafted ICC (ilvl 284) - 7 dias
-(6, 54579, 7),  -- Treads of Impending Resurrection
-(6, 54577, 7),  -- Returning Footfalls
-(6, 54586, 7),  -- Foreshadow Steps
-(6, 54578, 7),  -- Apocalypse's Advance
--- ICC 25H (ilvl 277) - 5 dias
-(6, 50711, 5),  -- Treads of the Wasteland
-(6, 50699, 5),  -- Plague Scientist's Boots
-(6, 50665, 5),  -- Boots of Unnatural Growth
-(6, 50652, 5),  -- Necrophotic Greaves
-(6, 50639, 5),  -- Blood-Soaked Saronite Stompers
-(6, 50632, 5),  -- Boots of the Funeral March
-(6, 50625, 5),  -- Grinning Skull Greatboots
-(6, 50607, 5),  -- Frostbitten Fur Boots
--- ICC crafted (ilvl 271) - 3 dias
-(6, 53127, 3),  -- Returning Footfalls
-(6, 53125, 3),  -- Apocalypse's Advance
-(6, 54558, 3),  -- Boots of Divided Being
-(6, 53129, 3),  -- Treads of Impending Resurrection
-(6, 53487, 3),  -- Foreshadow Steps
-(6, 54564, 3);  -- Scion's Treads
-
--- ============================================================
--- Type 7: Maos (Hands)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- ICC 25H (ilvl 277) - 5 dias
-(7, 50703, 5),  -- Unclean Surgical Gloves
-(7, 51222, 5),  -- Sanctified Ymirjar Lord's Handguards (Warrior Prot)
-(7, 51276, 5),  -- Sanctified Lightsworn Gauntlets (Paladin Ret)
-(7, 51307, 5),  -- Sanctified Scourgelord Handguards (DK Tank)
-(7, 51311, 5),  -- Sanctified Scourgelord Gauntlets (DK DPS)
-(7, 51280, 5),  -- Sanctified Bloodmage Gloves (Mage)
-(7, 51295, 5),  -- Sanctified Lasherweave Handgrips (Druid Feral)
-(7, 51301, 5),  -- Sanctified Lasherweave Gauntlets (Druid Balance)
-(7, 51226, 5),  -- Sanctified Ymirjar Lord's Gauntlets (Warrior DPS)
-(7, 51251, 5),  -- Sanctified Shadowblade Gauntlets (Rogue)
-(7, 51267, 5),  -- Sanctified Lightsworn Handguards (Paladin Tank)
-(7, 51270, 5),  -- Sanctified Lightsworn Gloves (Paladin Holy)
-(7, 51238, 5),  -- Sanctified Frost Witch's Gloves (Shaman Ele)
-(7, 51256, 5),  -- Sanctified Crimson Acolyte Handwraps (Priest Shadow)
-(7, 51230, 5),  -- Sanctified Dark Coven Gloves (Warlock)
-(7, 51243, 5),  -- Sanctified Frost Witch's Grips (Shaman Resto)
-(7, 51285, 5),  -- Sanctified Ahn'Kahar Blood Hunter's Handguards (Hunter)
-(7, 51248, 5),  -- Sanctified Frost Witch's Handguards (Shaman Enh)
-(7, 51260, 5),  -- Sanctified Crimson Acolyte Gloves (Priest Heal)
-(7, 51291, 5),  -- Sanctified Lasherweave Gloves (Druid Resto)
-(7, 50722, 5),  -- San'layn Ritualist Gloves
-(7, 50716, 5),  -- Taldaram's Plated Fists
-(7, 50690, 5),  -- Fleshrending Gauntlets
-(7, 50675, 5),  -- Aldriana's Gloves of Secrecy
-(7, 50615, 5);  -- Handguards of Winter's Respite
-
--- ============================================================
--- Type 8: Pulsos (Wrist)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- Crafted ICC (ilvl 284) - 7 dias
-(8, 54582, 7),  -- Bracers of Fiery Night
-(8, 54584, 7),  -- Phaseshifter's Bracers
-(8, 54580, 7),  -- Umbrage Armbands
--- ICC 25H (ilvl 277) - 5 dias
-(8, 50721, 5),  -- Crypt Keeper's Bracers
-(8, 50687, 5),  -- Bloodsunder's Bracers
-(8, 50686, 5),  -- Death Surgeon's Sleeves
-(8, 50611, 5),  -- Bracers of Dark Reckoning
-(8, 50630, 5),  -- Bracers of Eternal Dreaming
-(8, 50651, 5),  -- The Lady's Brittle Bracers
-(8, 50655, 5),  -- Scourge Hunter's Vambraces
-(8, 50659, 5),  -- Polar Bear Claw Bracers
-(8, 50670, 5),  -- Toskk's Maximized Wristguards
--- ICC crafted (ilvl 271) - 3 dias
-(8, 53126, 3),  -- Umbrage Armbands
-(8, 54559, 3),  -- Bracers of the Heir
-(8, 53134, 3),  -- Phaseshifter's Bracers
-(8, 53486, 3);  -- Bracers of Fiery Night
-
--- ============================================================
--- Type 9: Cintura (Waist)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- Crafted ICC (ilvl 284) - 7 dias
-(9, 54587, 7),  -- Split Shape Belt
--- ICC 25H (ilvl 277) - 5 dias
-(9, 50707, 5),  -- Astrylian's Sutured Cinch
-(9, 50705, 5),  -- Professor's Bloodied Smock
-(9, 50702, 5),  -- Lingering Illness
-(9, 50691, 5),  -- Belt of Broken Bones
-(9, 50688, 5),  -- Nerub'ar Stalker's Cord
-(9, 50671, 5),  -- Belt of the Blood Nova
-(9, 50667, 5),  -- Waistband of Righteous Fury
-(9, 50613, 5),  -- Crushing Coldwraith Belt
-(9, 50620, 5),  -- Coldwraith Links
--- ICC crafted (ilvl 271) - 3 dias
-(9, 53488, 3),  -- Split Shape Belt
-(9, 54562, 3),  -- Misbegotten Belt
-(9, 54565, 3),  -- Surrogate Belt
--- ICC 25N (ilvl 264) - 3 dias
-(9, 50997, 3),  -- Circle of Ossus
-(9, 50996, 3),  -- Belt of Omission
-(9, 50995, 3),  -- Vengeful Noose
-(9, 50994, 3),  -- Belt of Petrified Ivy
-(9, 50993, 3),  -- Band of the Night Raven
-(9, 50992, 3),  -- Waistband of Despair
-(9, 50989, 3),  -- Lich Killer's Lanyard
-(9, 50987, 3);  -- Malevolent Girdle
-
--- ============================================================
--- Type 10: Capas (Cloaks)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- Crafted ICC (ilvl 284) - 7 dias
-(10, 54583, 7),  -- Cloak of Burning Dusk
--- ICC 25H (ilvl 277) - 5 dias
-(10, 50628, 5),  -- Frostbinder's Shredded Cape
-(10, 50653, 5),  -- Shadowvault Slayer's Cloak
-(10, 50668, 5),  -- Greatcloak of the Turned Champion
-(10, 50677, 5),  -- Winding Sheet
-(10, 50718, 5),  -- Royal Crimson Cloak
--- ToC 25H (ilvl 272) - 3 dias
-(10, 47546, 3),  -- Sylvanas' Cunning
-(10, 47545, 3),  -- Vereesa's Dexterity
-(10, 47554, 3),  -- Lady Liadrin's Conviction
-(10, 47553, 3),  -- Bolvar's Devotion
-(10, 47552, 3),  -- Jaina's Radiance
-(10, 47551, 3),  -- Aethas' Intensity
-(10, 47550, 3),  -- Cairne's Endurance
-(10, 47549, 3),  -- Magni's Resolution
-(10, 47548, 3),  -- Garrosh's Rage
-(10, 47547, 3),  -- Varian's Furor
--- ICC crafted (ilvl 271) - 3 dias
-(10, 53489, 3),  -- Cloak of Burning Dusk
-(10, 54556, 3);  -- Abduction's Cover
-
--- ============================================================
--- Type 11: Aneis/Amuletos/Trinkets
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- Ruby Sanctum (ilvl 284) - 7 dias
-(11, 54581, 7),  -- Penumbra Pendant (Neck)
-(11, 54591, 7),  -- Petrified Twilight Scale (Trinket)
-(11, 54590, 7),  -- Sharpened Twilight Scale (Trinket)
-(11, 54585, 7),  -- Ring of Phased Regeneration (Ring)
-(11, 54589, 7),  -- Glowing Twilight Scale (Trinket)
-(11, 54588, 7),  -- Charred Twilight Scale (Trinket)
-(11, 54576, 7),  -- Signet of Twilight (Ring)
--- ICC 25H (ilvl 277) - 5 dias
-(11, 50398, 5),  -- Ashen Band of Endless Destruction (Ring)
-(11, 52572, 5),  -- Ashen Band of Endless Might (Ring)
-(11, 50404, 5),  -- Ashen Band of Endless Courage (Ring)
-(11, 50402, 5),  -- Ashen Band of Endless Vengeance (Ring)
-(11, 50400, 5),  -- Ashen Band of Endless Wisdom (Ring)
-(11, 50348, 5),  -- Dislodged Foreign Object (Trinket)
-(11, 50349, 5),  -- Corpse Tongue Coin (Trinket)
-(11, 50726, 5),  -- Bauble of True Blood (Trinket)
-(11, 50706, 5),  -- Tiny Abomination in a Jar (Trinket)
-(11, 50365, 5),  -- Phylactery of the Nameless Lich (Trinket)
-(11, 50363, 5),  -- Deathbringer's Will (Trinket)
-(11, 50364, 5),  -- Sindragosa's Flawless Fang (Trinket)
-(11, 50658, 5),  -- Amulet of the Silent Eulogy (Neck)
-(11, 50627, 5),  -- Noose of Malachite (Neck)
-(11, 50714, 5),  -- Valanar's Other Signet Ring (Ring)
-(11, 50604, 5),  -- Band of the Bone Colossus (Ring)
-(11, 50622, 5),  -- Devium's Eternally Cold Ring (Ring)
-(11, 50614, 5),  -- Loop of the Endless Labyrinth (Ring)
-(11, 50682, 5),  -- Bile-Encrusted Medallion (Neck)
-(11, 50700, 5),  -- Holiday's Grace (Neck)
-(11, 50728, 5),  -- Lana'thel's Chain of Flagellation (Neck)
-(11, 50724, 5),  -- Blood Queen's Crimson Choker (Neck)
-(11, 50633, 5);  -- Sindragosa's Cruel Claw (Neck)
-
--- ============================================================
--- Type 12: Consumiveis (Consumables/Reagents) - 1 dia cada
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
-(12, 46376, 1),  -- Flask of the Frost Wyrm
-(12, 46378, 1),  -- Flask of Pure Mojo
-(12, 46379, 1),  -- Flask of Stoneblood
-(12, 46377, 1),  -- Flask of Endless Rage
-(12, 40211, 1),  -- Potion of Speed
-(12, 40212, 1),  -- Potion of Wild Magic
-(12, 33447, 1),  -- Runic Healing Potion
-(12, 33448, 1),  -- Runic Mana Potion
-(12, 43015, 1),  -- Fish Feast
-(12, 40109, 1),  -- Elixir of Mighty Mageblood
-(12, 39666, 1),  -- Elixir of Mighty Agility
-(12, 40078, 1),  -- Elixir of Mighty Fortitude
-(12, 40068, 1),  -- Wrath Elixir
-(12, 40070, 1),  -- Spellpower Elixir
-(12, 40076, 1);  -- Guru's Elixir
-
--- ============================================================
--- Type 13: Escudos/Off-hands (Shields & Off-hands)
--- ============================================================
-INSERT INTO `mod_vip_shop` (`vendor_type`, `item_entry`, `price`) VALUES
--- ICC 25H (ilvl 277) - 5 dias
-(13, 50616, 5),  -- Bulwark of Smouldering Steel (Shield)
-(13, 50729, 5),  -- Icecrown Glacial Wall (Shield)
-(13, 50635, 5),  -- Sundial of Eternal Dusk (Off-hand)
-(13, 50719, 5),  -- Shadow Silk Spindle (Off-hand)
--- ICC 25N (ilvl 264) - 3 dias
-(13, 49976, 3),  -- Bulwark of Smouldering Steel (Shield)
-(13, 50065, 3),  -- Icecrown Glacial Wall (Shield)
-(13, 50423, 3),  -- Sundial of Eternal Dusk (Off-hand)
-(13, 50173, 3),  -- Shadow Silk Spindle (Off-hand)
-(13, 51922, 3),  -- Scourgelord's Baton (Off-hand)
-(13, 51909, 3),  -- Neverending Winter (Shield)
-(13, 51812, 3);  -- Lost Pavise of the Blue Flight (Shield)
+(20, 34334, 69),
+(20, 34196, 21),
+(20, 42946, 23),
+(20, 50776, 6),
+(20, 50034, 7),
+(20, 51395, 41),
+(20, 50638, 22),
+(20, 51927, 19),
+(20, 48697, 6),
+(20, 39296, 6),
+(20, 48420, 6),
+(20, 49844, 6),
+(20, 48711, 6),
+(20, 40265, 6),
+(20, 42492, 6),
+(20, 45872, 6),
+(20, 45327, 6),
+(20, 45938, 6),
+(20, 42491, 6),
+(21, 49981, 182),
+(21, 50733, 44),
+(21, 51802, 13),
+(21, 51940, 40),
+(21, 51412, 20),
+(21, 3462, 6),
+(21, 46994, 6),
+(21, 46995, 6),
+(21, 51411, 6),
+(21, 35018, 6),
+(21, 47267, 6),
+(21, 47428, 6),
+(21, 48422, 6),
+(22, 51384, 6),
+(22, 51846, 6),
+(22, 34329, 10),
+(22, 21126, 6),
+(22, 45607, 6),
+(22, 51011, 6),
+(22, 51868, 6),
+(22, 49982, 6),
+(22, 50641, 6),
+(22, 50426, 118),
+(22, 50736, 18),
+(22, 22802, 6),
+(22, 50183, 35),
+(22, 50621, 6),
+(22, 50016, 22),
+(22, 50676, 6),
+(22, 51800, 9),
+(22, 51942, 6),
+(22, 51788, 8),
+(22, 51815, 6),
+(22, 49968, 19),
+(22, 50608, 6),
+(22, 50793, 6),
+(22, 51910, 6),
+(22, 34336, 6),
+(22, 51803, 44),
+(22, 51939, 9),
+(22, 51406, 20),
+(22, 51398, 97),
+(22, 51399, 27),
+(22, 51397, 8),
+(22, 51517, 9),
+(22, 51518, 26),
+(22, 51442, 9),
+(22, 51528, 14),
+(22, 51527, 6),
+(22, 51441, 6),
+(22, 48428, 6),
+(22, 48442, 6),
+(22, 48509, 6),
+(23, 51003, 6),
+(23, 51876, 6),
+(23, 50035, 6),
+(23, 50692, 6),
+(23, 34331, 6),
+(23, 51801, 6),
+(23, 51941, 6),
+(23, 48515, 6),
+(23, 51524, 9),
+(23, 51523, 6),
+(23, 34203, 6),
+(23, 50184, 14),
+(23, 50710, 16),
+(23, 48444, 6),
+(23, 51784, 6),
+(23, 51819, 6),
+(23, 51529, 8),
+(23, 51444, 6),
+(23, 51530, 6),
+(23, 51443, 6),
+(24, 51385, 12),
+(24, 51845, 13),
+(24, 51561, 6),
+(24, 51834, 6),
+(24, 51450, 9),
+(24, 51449, 6),
+(24, 35075, 6),
+(24, 47521, 6),
+(24, 47523, 6),
+(24, 45870, 6),
+(25, 47266, 13),
+(25, 47427, 13),
+(25, 50759, 13),
+(25, 51938, 13),
+(25, 34996, 13),
+(25, 49297, 0),
+(25, 50787, 13),
+(25, 51916, 13),
+(25, 22816, 13),
+(25, 50012, 44),
+(25, 50737, 179),
+(25, 47314, 10),
+(25, 47475, 10),
+(25, 46996, 6),
+(25, 47001, 6),
+(25, 50191, 6),
+(25, 42210, 6),
+(25, 48507, 6),
+(25, 50411, 12),
+(25, 50654, 27),
+(25, 47148, 6),
+(25, 47156, 6),
+(25, 47808, 6),
+(25, 47966, 6),
+(25, 51795, 10),
+(25, 51947, 10),
+(25, 51515, 17),
+(25, 51516, 55),
+(25, 35110, 6),
+(25, 34995, 6),
+(25, 42234, 6),
+(25, 42229, 6),
+(25, 48440, 6),
+(25, 51525, 6),
+(25, 51440, 8),
+(25, 51439, 6),
+(25, 51526, 20),
+(26, 49997, 54),
+(26, 50738, 57),
+(26, 47526, 21),
+(26, 47816, 20),
+(26, 47973, 22),
+(26, 51520, 14),
+(26, 46035, 6),
+(26, 47809, 6),
+(26, 47962, 6),
+(26, 48709, 6),
+(26, 48693, 6),
+(26, 51004, 5),
+(26, 51875, 6),
+(26, 47894, 5),
+(26, 48039, 6),
+(26, 47193, 5),
+(26, 47206, 6),
+(26, 50428, 5),
+(26, 50734, 6),
+(26, 47322, 5),
+(26, 47483, 6),
+(26, 50028, 5),
+(26, 50685, 6),
+(26, 46017, 21),
+(26, 51798, 5),
+(26, 51944, 6),
+(26, 51446, 26),
+(27, 47899, 6),
+(27, 48044, 6),
+(27, 50412, 80),
+(27, 50672, 80),
+(27, 47810, 6),
+(27, 47967, 6),
+(27, 34164, 6),
+(27, 47903, 6),
+(27, 48048, 6),
+(27, 47513, 6),
+(27, 47506, 6),
+(27, 39344, 25),
+(27, 51021, 10),
+(27, 51858, 10),
+(27, 51010, 7),
+(27, 51869, 7),
+(27, 19019, 130),
+(27, 47814, 6),
+(27, 47971, 6),
+(27, 47517, 6),
+(27, 50427, 215),
+(27, 50732, 215),
+(27, 50771, 9),
+(27, 51932, 9),
+(27, 50068, 33),
+(27, 50704, 33),
+(27, 48701, 6),
+(27, 48708, 6),
+(27, 32837, 73),
+(27, 32838, 79),
+(28, 47911, 6),
+(28, 48056, 6),
+(28, 47233, 6),
+(28, 47239, 6),
+(28, 40497, 14),
+(28, 50178, 13),
+(28, 50727, 33),
+(28, 35064, 6),
+(28, 47834, 6),
+(28, 47979, 6),
+(28, 28774, 6),
+(28, 47329, 6),
+(28, 47491, 6),
+(28, 51022, 22),
+(28, 51857, 22),
+(28, 50425, 52),
+(28, 50735, 214),
+(28, 48517, 6),
+(28, 34183, 6),
+(28, 51481, 37),
+(28, 51480, 9),
+(29, 47910, 14),
+(29, 48055, 14),
+(29, 40475, 11),
+(29, 47079, 9),
+(29, 47085, 14),
+(29, 47287, 13),
+(29, 47448, 16),
+(29, 32375, 68),
+(29, 49976, 45),
+(29, 50616, 95),
+(29, 47835, 7),
+(29, 47978, 13),
+(29, 46963, 11),
+(29, 46964, 14),
+(29, 17066, 30),
+(29, 19349, 30),
+(29, 47260, 15),
+(29, 47421, 15),
+(29, 40266, 26),
+(29, 50065, 51),
+(29, 50729, 133),
+(29, 37107, 30),
+(29, 51791, 33),
+(29, 51812, 33),
+(29, 50794, 16),
+(29, 51909, 23),
+(29, 45450, 14),
+(29, 19348, 13),
+(29, 42566, 10),
+(29, 42572, 13),
+(29, 42561, 13),
+(29, 43085, 30),
+(29, 45707, 6),
+(29, 34185, 30),
+(29, 40400, 20),
+(29, 51452, 55),
+(29, 51455, 61),
+(29, 51533, 73),
+(30, 22737, 8),
+(30, 22589, 8),
+(30, 22630, 8),
+(30, 22631, 8),
+(30, 22632, 8),
+(30, 50966, 12),
+(30, 51887, 12),
+(30, 50429, 18),
+(30, 50731, 65),
+(30, 42947, 29),
+(30, 51799, 36),
+(30, 51943, 36),
+(30, 35514, 42),
+(30, 54806, 42),
+(30, 34337, 13),
+(30, 50040, 9),
+(30, 50695, 9),
+(30, 50181, 17),
+(30, 50725, 17),
+(30, 47892, 6),
+(30, 48036, 6),
+(30, 48705, 6),
+(30, 47524, 6),
+(30, 47815, 6),
+(30, 47968, 6),
+(30, 46025, 60),
+(30, 51797, 31),
+(30, 51945, 31),
+(30, 47114, 6),
+(30, 47130, 6),
+(30, 50805, 11),
+(30, 51898, 11),
+(30, 49992, 9),
+(30, 50648, 9),
+(30, 48710, 0),
+(30, 47900, 6),
+(30, 48045, 6),
+(30, 50998, 6),
+(30, 51881, 6),
+(30, 51582, 11),
+(30, 51828, 11),
+(30, 39255, 21),
+(30, 47525, 6),
+(30, 47302, 7),
+(30, 47463, 7),
+(30, 45256, 6),
+(30, 51403, 26),
+(30, 51401, 35),
+(30, 51432, 26),
+(30, 51457, 29),
+(30, 51405, 17),
+(30, 32374, 6),
+(31, 50999, 31),
+(31, 51880, 33),
+(31, 50474, 6),
+(31, 51535, 14),
+(31, 34349, 6),
+(31, 47659, 6),
+(31, 45296, 6),
+(31, 42483, 6),
+(32, 49623, 1121),
+(32, 39769, 11),
+(32, 50415, 91),
+(32, 42943, 26),
+(32, 49888, 83),
+(32, 47285, 15),
+(32, 47069, 10),
+(32, 50709, 20),
+(32, 51389, 45),
+(32, 48695, 6),
+(32, 51481, 16),
+(32, 50798, 23),
+(32, 28773, 6),
+(32, 45165, 6),
+(32, 48402, 6),
+(32, 47078, 6),
+(32, 51523, 6),
+(32, 40384, 6),
+(32, 21134, 19),
+(32, 31966, 320),
+(33, 17182, 17),
+(33, 49919, 69),
+(33, 50603, 23),
+(33, 51562, 15),
+(33, 51391, 35),
+(33, 51796, 14),
+(33, 51946, 37),
+(33, 51833, 6),
+(33, 51390, 8),
+(33, 34989, 6),
+(33, 47520, 6),
+(33, 39245, 6),
+(33, 47519, 6),
+(33, 42321, 6),
+(33, 33663, 6),
+(33, 46067, 6),
+(33, 42322, 6),
+(33, 48404, 6),
+(33, 45949, 6),
+(33, 40406, 6),
+(33, 42323, 6),
+(33, 45282, 6),
+(33, 42324, 6),
+(34, 50070, 58),
+(34, 34247, 38),
+(34, 22691, 32),
+(34, 40343, 49),
+(34, 50761, 23),
+(34, 44092, 17),
+(34, 35015, 7),
+(34, 45516, 6),
+(34, 13262, 25),
+(34, 51936, 11),
+(34, 51392, 22),
+(34, 51393, 62),
+(34, 37108, 9),
+(34, 47516, 7),
+(34, 47884, 6),
+(34, 30902, 8),
+(34, 45233, 6),
+(34, 46016, 6),
+(34, 50048, 6),
+(34, 19364, 24),
+(34, 48406, 6),
+(34, 50049, 6),
+(34, 47515, 6),
+(34, 45950, 6),
+(34, 49299, 6),
+(34, 49498, 6),
+(34, 42334, 6),
+(34, 42333, 6),
+(34, 47737, 6),
+(34, 47951, 6),
+(34, 28573, 80),
+(35, 51451, 39),
+(35, 51553, 6),
+(35, 51838, 7),
+(35, 50033, 66),
+(35, 50684, 68),
+(35, 51532, 6),
+(35, 51410, 9),
+(35, 51326, 10),
+(35, 51852, 11),
+(35, 34347, 6),
+(35, 50472, 14),
+(35, 50631, 15),
+(35, 45294, 6),
+(35, 42521, 6),
+(35, 42504, 6),
+(35, 49185, 6),
+(35, 47612, 6),
+(35, 47922, 6),
+(35, 47856, 6),
+(35, 47995, 6),
+(35, 45511, 6),
+(35, 34348, 6),
+(35, 47658, 6),
+(35, 51531, 18),
+(36, 45991, 8),
+(36, 19970, 8),
+(36, 44050, 8),
+(37, 40119, 3),
+(37, 40122, 3),
+(37, 36767, 3),
+(37, 42155, 3),
+(37, 42156, 3),
+(37, 45880, 3),
+(37, 45987, 3),
+(38, 40182, 3),
+(38, 40168, 3),
+(38, 40179, 3),
+(39, 41285, 3),
+(39, 41398, 3),
+(39, 41333, 3),
+(39, 41380, 3),
+(39, 41385, 3),
+(39, 41381, 3),
+(39, 41307, 3),
+(39, 41397, 3),
+(39, 41339, 3),
+(40, 40155, 3),
+(40, 40142, 3),
+(40, 40145, 3),
+(40, 40147, 3),
+(40, 40152, 3),
+(40, 40146, 3),
+(41, 42225, 3),
+(41, 49110, 4),
+(42, 40133, 3),
+(42, 40148, 3),
+(42, 40139, 3),
+(43, 40112, 4),
+(43, 40111, 3),
+(43, 36919, 3),
+(43, 42142, 3),
+(43, 42148, 3),
+(43, 42143, 3),
+(43, 45862, 5),
+(43, 45882, 3),
+(43, 45879, 3),
+(44, 40127, 3),
+(44, 40124, 3),
+(44, 40128, 5),
+(44, 42158, 4),
+(44, 42150, 3),
+(44, 42149, 3),
+(45, 48691, 19),
+(45, 50418, 7),
+(45, 50629, 26),
+(45, 50243, 12),
+(45, 50394, 10),
+(45, 50768, 5),
+(45, 51156, 9),
+(45, 51283, 14),
+(45, 51206, 14),
+(45, 51233, 18),
+(45, 50172, 5),
+(45, 50717, 16),
+(45, 51536, 20),
+(45, 51482, 12),
+(45, 51487, 12),
+(45, 51463, 20),
+(45, 34397, 3),
+(45, 48687, 11),
+(45, 50087, 10),
+(45, 51743, 10),
+(45, 51189, 17),
+(45, 51250, 12),
+(45, 51150, 20),
+(45, 51289, 23),
+(45, 51492, 16),
+(45, 51419, 8),
+(45, 51433, 4),
+(45, 50118, 16),
+(45, 51707, 16),
+(45, 34990, 5),
+(45, 50038, 5),
+(45, 50689, 5),
+(45, 50841, 7),
+(45, 51757, 7),
+(45, 50835, 5),
+(45, 51747, 5),
+(45, 41088, 6),
+(45, 51195, 7),
+(45, 51244, 7),
+(45, 51200, 5),
+(45, 51239, 5),
+(45, 51190, 11),
+(45, 51249, 11),
+(45, 51503, 20),
+(45, 51509, 11),
+(45, 51497, 4),
+(45, 40791, 5),
+(45, 48685, 9),
+(45, 50027, 9),
+(45, 50094, 17),
+(45, 50680, 10),
+(45, 51134, 10),
+(45, 51164, 19),
+(45, 51174, 9),
+(45, 51214, 24),
+(45, 51225, 24),
+(45, 51265, 9),
+(45, 51275, 19),
+(45, 51305, 11),
+(45, 51474, 4),
+(45, 51717, 18),
+(45, 51771, 23),
+(46, 53115, 9),
+(46, 54556, 10),
+(46, 47551, 60),
+(46, 53489, 104),
+(46, 54583, 18),
+(46, 50859, 6),
+(46, 51888, 6),
+(46, 48668, 60),
+(46, 45319, 5),
+(46, 48673, 20),
+(46, 34241, 15),
+(46, 45461, 6),
+(46, 46032, 20),
+(46, 38614, 20),
+(46, 50205, 15),
+(46, 50628, 20),
+(46, 50014, 9),
+(46, 50668, 13),
+(46, 51382, 9),
+(46, 51848, 9),
+(46, 51584, 11),
+(46, 51826, 11),
+(46, 50074, 6),
+(46, 50718, 12),
+(46, 50791, 10),
+(46, 51912, 10),
+(46, 32323, 30),
+(46, 49998, 43),
+(46, 50653, 14),
+(46, 50764, 10),
+(46, 51933, 10),
+(46, 46976, 23),
+(46, 46977, 23),
+(46, 34242, 15),
+(46, 50019, 14),
+(46, 50677, 33),
+(46, 51348, 15),
+(46, 51330, 17),
+(46, 51346, 15),
+(46, 51332, 20),
+(46, 51354, 9),
+(46, 51356, 20),
+(47, 50804, 10),
+(47, 51380, 5),
+(47, 50062, 23),
+(47, 50699, 89),
+(47, 51338, 34),
+(47, 51328, 12),
+(47, 49950, 10),
+(47, 50607, 40),
+(47, 50783, 5),
+(47, 51920, 5),
+(47, 50009, 14),
+(47, 50665, 14),
+(47, 51023, 6),
+(47, 51856, 9),
+(47, 34575, 3),
+(47, 51369, 23),
+(47, 53119, 10),
+(47, 54558, 4),
+(47, 50812, 6),
+(47, 51891, 6),
+(47, 50071, 15),
+(47, 50711, 4),
+(47, 51375, 5),
+(47, 51351, 20),
+(47, 49897, 0),
+(47, 49983, 12),
+(47, 50190, 11),
+(47, 50625, 12),
+(47, 50639, 13),
+(47, 50788, 12),
+(47, 51915, 12),
+(47, 53125, 235),
+(47, 53129, 6),
+(47, 53487, 17),
+(47, 54578, 246),
+(47, 54579, 6),
+(47, 54586, 17),
+(48, 50275, 9),
+(48, 50240, 7),
+(48, 50176, 5),
+(48, 51159, 13),
+(48, 51280, 19),
+(48, 51179, 8),
+(48, 51183, 11),
+(48, 51209, 14),
+(48, 51537, 10),
+(48, 51483, 6),
+(48, 51488, 4),
+(48, 51464, 9),
+(48, 50021, 15),
+(48, 50675, 48),
+(48, 50799, 8),
+(48, 51904, 8),
+(48, 51459, 14),
+(48, 51493, 9),
+(48, 50114, 9),
+(48, 51711, 9),
+(48, 50188, 6),
+(48, 50619, 6),
+(48, 50842, 3),
+(48, 51758, 3),
+(48, 51201, 10),
+(48, 51238, 10),
+(48, 51196, 6),
+(48, 51243, 6),
+(48, 34343, 3),
+(48, 50064, 8),
+(48, 50703, 8),
+(48, 51504, 10),
+(48, 51510, 4),
+(48, 51498, 4),
+(48, 34341, 6),
+(48, 49995, 7),
+(48, 50037, 5),
+(48, 50650, 7),
+(48, 50690, 5),
+(48, 51132, 7),
+(48, 51172, 7),
+(48, 51217, 8),
+(48, 51222, 8),
+(48, 51267, 8),
+(48, 51307, 8),
+(48, 51475, 14),
+(48, 51542, 9),
+(49, 50276, 16),
+(49, 51715, 20),
+(49, 51554, 5),
+(49, 51837, 5),
+(49, 50241, 14),
+(49, 51765, 16),
+(49, 51158, 20),
+(49, 51281, 23),
+(49, 51184, 20),
+(49, 51255, 20),
+(49, 51178, 14),
+(49, 51261, 14),
+(49, 51208, 23),
+(49, 51231, 23),
+(49, 50741, 9),
+(49, 51465, 23),
+(49, 51489, 15),
+(49, 51484, 15),
+(49, 51538, 32),
+(49, 32235, 75),
+(49, 41673, 4),
+(49, 51494, 26),
+(49, 51427, 9),
+(49, 51421, 10),
+(49, 51435, 6),
+(49, 51153, 23),
+(49, 51286, 25),
+(49, 50089, 12),
+(49, 51745, 12),
+(49, 51187, 14),
+(49, 51252, 19),
+(49, 50115, 17),
+(49, 51710, 17),
+(49, 50837, 12),
+(49, 51749, 12),
+(49, 50843, 8),
+(49, 51759, 8),
+(49, 41158, 4),
+(49, 51197, 12),
+(49, 51242, 12),
+(49, 51192, 14),
+(49, 51247, 14),
+(49, 51202, 6),
+(49, 51237, 6),
+(49, 48257, 5),
+(49, 48272, 5),
+(49, 48262, 5),
+(49, 48267, 5),
+(49, 51460, 39),
+(49, 51505, 7),
+(49, 51511, 13),
+(49, 51499, 3),
+(49, 34345, 3),
+(49, 40830, 7),
+(49, 40831, 4),
+(49, 48493, 4),
+(49, 48498, 4),
+(49, 49986, 16),
+(49, 50326, 16),
+(49, 50640, 17),
+(49, 51162, 19),
+(49, 51167, 23),
+(49, 51212, 22),
+(49, 51227, 22),
+(49, 51272, 24),
+(49, 51277, 20),
+(49, 51476, 43),
+(49, 51543, 28),
+(49, 51684, 18),
+(49, 51719, 16),
+(49, 51724, 17),
+(49, 51769, 23),
+(50, 34181, 4),
+(50, 50990, 5),
+(50, 50056, 8),
+(50, 50694, 64),
+(50, 50277, 12),
+(50, 51714, 17),
+(50, 50769, 7),
+(50, 51157, 13),
+(50, 51282, 17),
+(50, 51207, 7),
+(50, 51539, 14),
+(50, 51490, 8),
+(50, 51466, 14),
+(50, 34188, 8),
+(50, 50825, 8),
+(50, 51700, 8),
+(50, 51142, 13),
+(50, 51297, 13),
+(50, 51136, 6),
+(50, 51303, 14),
+(50, 50090, 12),
+(50, 51744, 12),
+(50, 51186, 17),
+(50, 51253, 17),
+(50, 51495, 14),
+(50, 50844, 7),
+(50, 51760, 7),
+(50, 50838, 5),
+(50, 51750, 5),
+(50, 49988, 28),
+(50, 50645, 6),
+(50, 51203, 10),
+(50, 51236, 10),
+(50, 51193, 11),
+(50, 51246, 11),
+(50, 51198, 5),
+(50, 51241, 12),
+(50, 34168, 4),
+(50, 51512, 8),
+(50, 34180, 5),
+(50, 50081, 15),
+(50, 50097, 13),
+(50, 50325, 14),
+(50, 51161, 15),
+(50, 51171, 5),
+(50, 51211, 14),
+(50, 51228, 15),
+(50, 51268, 5),
+(50, 51278, 15),
+(50, 51477, 21),
+(50, 51683, 13),
+(51, 49989, 37),
+(51, 50647, 37),
+(51, 50005, 26),
+(51, 50658, 26),
+(51, 53103, 12),
+(51, 54557, 12),
+(51, 50023, 8),
+(51, 50682, 8),
+(51, 50182, 60),
+(51, 50724, 60),
+(51, 49975, 22),
+(51, 50609, 22),
+(51, 34184, 22),
+(51, 51008, 6),
+(51, 51871, 6),
+(51, 32591, 23),
+(51, 51548, 10),
+(51, 51842, 10),
+(51, 44660, 23),
+(51, 44664, 23),
+(51, 22981, 22),
+(51, 50061, 8),
+(51, 50700, 8),
+(51, 51012, 6),
+(51, 51867, 6),
+(51, 50180, 30),
+(51, 50728, 30),
+(51, 22732, 22),
+(51, 50763, 6),
+(51, 51934, 6),
+(51, 45262, 23),
+(51, 50195, 12),
+(51, 50627, 12),
+(51, 51016, 6),
+(51, 51863, 6),
+(51, 44659, 23),
+(51, 53132, 113),
+(51, 54581, 81),
+(51, 51779, 35),
+(51, 51822, 35),
+(51, 50421, 57),
+(51, 50633, 57),
+(51, 50809, 10),
+(51, 51894, 10),
+(51, 51333, 10),
+(52, 50173, 54),
+(52, 50719, 54),
+(52, 50423, 28),
+(52, 50635, 28),
+(52, 51407, 33),
+(52, 51396, 25),
+(52, 51408, 21),
+(52, 51409, 16),
+(52, 47138, 9),
+(52, 47146, 9),
+(52, 47309, 6),
+(52, 47470, 9),
+(52, 50781, 17),
+(52, 51922, 17),
+(53, 50459, 16),
+(53, 51423, 30),
+(53, 51429, 30),
+(53, 51437, 30),
+(53, 51472, 30),
+(53, 51478, 30),
+(53, 51501, 30),
+(54, 54576, 24),
+(54, 50186, 72),
+(54, 50657, 48),
+(54, 50714, 39),
+(54, 50664, 53),
+(54, 50614, 16),
+(54, 50255, 23),
+(54, 51849, 13),
+(54, 51900, 14),
+(54, 50636, 18),
+(54, 51336, 8),
+(54, 50604, 17),
+(54, 50678, 13),
+(54, 50644, 10),
+(54, 50693, 28),
+(54, 54563, 9),
+(54, 51843, 6),
+(54, 50610, 17),
+(54, 50622, 12),
+(54, 54585, 43),
+(54, 50642, 9),
+(54, 51884, 9),
+(54, 50720, 6),
+(54, 51878, 7),
+(54, 51855, 7),
+(54, 47443, 6),
+(54, 28553, 6),
+(54, 47934, 6),
+(54, 27833, 5),
+(54, 47075, 5),
+(54, 47413, 5),
+(54, 48027, 5),
+(54, 46966, 5),
+(54, 47920, 5),
+(54, 47955, 5),
+(54, 47157, 5),
+(54, 34213, 12),
+(54, 23059, 22),
+(54, 28555, 0),
+(54, 47237, 26),
+(54, 51913, 38),
+(54, 23061, 23),
+(55, 22499, 3),
+(55, 51572, 3),
+(55, 50396, 7),
+(55, 50767, 6),
+(55, 50244, 9),
+(55, 50279, 11),
+(55, 51155, 13),
+(55, 51284, 22),
+(55, 51182, 14),
+(55, 51175, 10),
+(55, 51264, 10),
+(55, 51205, 10),
+(55, 51234, 19),
+(55, 49991, 10),
+(55, 50643, 10),
+(55, 42985, 18),
+(55, 51540, 39),
+(55, 51486, 27),
+(55, 51491, 26),
+(55, 51467, 37),
+(55, 50113, 4),
+(55, 51692, 4),
+(55, 51135, 6),
+(55, 51304, 10),
+(55, 51151, 14),
+(55, 51288, 25),
+(55, 51185, 9),
+(55, 51254, 23),
+(55, 51496, 48),
+(55, 51430, 20),
+(55, 51424, 21),
+(55, 51438, 12),
+(55, 50117, 11),
+(55, 51708, 11),
+(55, 34994, 3),
+(55, 50059, 8),
+(55, 50698, 8),
+(55, 41218, 5),
+(55, 51199, 8),
+(55, 51240, 8),
+(55, 51204, 6),
+(55, 51235, 6),
+(55, 51194, 12),
+(55, 51245, 12),
+(55, 48259, 5),
+(55, 48270, 5),
+(55, 48260, 5),
+(55, 48269, 5),
+(55, 51462, 70),
+(55, 51514, 20),
+(55, 51502, 13),
+(55, 34388, 3),
+(55, 50020, 11),
+(55, 50098, 10),
+(55, 50674, 11),
+(55, 51125, 12),
+(55, 51130, 9),
+(55, 51160, 11),
+(55, 51166, 16),
+(55, 51170, 4),
+(55, 51210, 24),
+(55, 51215, 10),
+(55, 51224, 10),
+(55, 51229, 25),
+(55, 51269, 4),
+(55, 51273, 16),
+(55, 51279, 12),
+(55, 51309, 9),
+(55, 51314, 12),
+(55, 51418, 88),
+(55, 51473, 31),
+(55, 51479, 84),
+(55, 51545, 60),
+(55, 51721, 10),
+(56, 46874, 12),
+(56, 25549, 6),
+(56, 19160, 25),
+(56, 45983, 28),
+(56, 15199, 5),
+(56, 23709, 10),
+(56, 35280, 5),
+(56, 35279, 5),
+(56, 38310, 8),
+(56, 43154, 5),
+(56, 43156, 5),
+(56, 51534, 42),
+(57, 54569, 350),
+(57, 54588, 220),
+(57, 54572, 111),
+(57, 54573, 86),
+(57, 50362, 65),
+(57, 50363, 112),
+(57, 45931, 8),
+(57, 50351, 27),
+(57, 54589, 33),
+(57, 50360, 168),
+(57, 50365, 76),
+(57, 50354, 65),
+(57, 50726, 44),
+(57, 47214, 32),
+(57, 50353, 52),
+(57, 50348, 81),
+(57, 50340, 26),
+(57, 50345, 11),
+(57, 47088, 8),
+(57, 45518, 23),
+(57, 47290, 12),
+(57, 50706, 51),
+(57, 50342, 102),
+(57, 50343, 45),
+(57, 47041, 26),
+(57, 47059, 68),
+(57, 47271, 65),
+(57, 47432, 21),
+(57, 50256, 29),
+(57, 50173, 26),
+(57, 50719, 26),
+(57, 50361, 42),
+(57, 50364, 15),
+(57, 45490, 15),
+(57, 45263, 7),
+(57, 50359, 14),
+(57, 50366, 27),
+(57, 50358, 14),
+(57, 49463, 5),
+(57, 47080, 8),
+(57, 48722, 5),
+(57, 49464, 6),
+(57, 49488, 5),
+(57, 45535, 7),
+(57, 50198, 16),
+(57, 50259, 6),
+(57, 44074, 5),
+(57, 44870, 5),
+(57, 28239, 5),
+(57, 28234, 9),
+(57, 47734, 10),
+(57, 40531, 5),
+(57, 50341, 7),
+(57, 50344, 15),
+(57, 47881, 5),
+(57, 48020, 7),
+(57, 47725, 5),
+(57, 47948, 6),
+(57, 50339, 10),
+(57, 50346, 6),
+(57, 50355, 16),
+(57, 50357, 9),
+(57, 49686, 9),
+(57, 50356, 29),
+(57, 50352, 6),
+(57, 50349, 5),
+(57, 47882, 5),
+(57, 48021, 5),
+(57, 50260, 5),
+(57, 40373, 5),
+(57, 48018, 6),
+(57, 47879, 5),
+(58, 50996, 4),
+(58, 51017, 4),
+(58, 51862, 12),
+(58, 49978, 16),
+(58, 50613, 60),
+(58, 53118, 6),
+(58, 50063, 12),
+(58, 51337, 31),
+(58, 51327, 8),
+(58, 50067, 26),
+(58, 50707, 110),
+(58, 50778, 5),
+(58, 51925, 9),
+(58, 30879, 3),
+(58, 50995, 13),
+(58, 34558, 4),
+(58, 51368, 19),
+(58, 51325, 8),
+(58, 51853, 8),
+(58, 50413, 37),
+(58, 50688, 10),
+(58, 53488, 44),
+(58, 54587, 8),
+(58, 51374, 5),
+(58, 51350, 16),
+(58, 50762, 5),
+(58, 51935, 5),
+(58, 47268, 6),
+(58, 47429, 6),
+(58, 50036, 7),
+(58, 50187, 22),
+(58, 50620, 23),
+(58, 50691, 7),
+(58, 51000, 28),
+(58, 51362, 39),
+(58, 51782, 15),
+(58, 51821, 16),
+(58, 51879, 29),
+(59, 51007, 8),
+(59, 49994, 12),
+(59, 50032, 5),
+(59, 50686, 8),
+(59, 53486, 22),
+(59, 54582, 107),
+(59, 51339, 9),
+(59, 50333, 83),
+(59, 50670, 83),
+(59, 53126, 99),
+(59, 54580, 99),
+(59, 51783, 16),
+(59, 51820, 16),
+(59, 47313, 7),
+(59, 47474, 7),
+(59, 47151, 5),
+(59, 47155, 5),
+(59, 50417, 7),
+(59, 50630, 7),
+(59, 51370, 6),
+(59, 34448, 3),
+(59, 50030, 13),
+(59, 50687, 13),
+(59, 50774, 4),
+(59, 51929, 4),
+(59, 50789, 10),
+(59, 51914, 10),
+(59, 50000, 12),
+(59, 50655, 26),
+(59, 49960, 16),
+(59, 50002, 14),
+(59, 50611, 17),
+(59, 50659, 14),
+(59, 51364, 8),
+(59, 51563, 18),
+(59, 51832, 18),
+(59, 53112, 31),
+(59, 54559, 33),
+(60, 50274, 45),
+(60, 52028, 31),
+(60, 52030, 34),
+(60, 23162, 55),
+(60, 50231, 31),
+(60, 50226, 26),
+(60, 51315, 15),
+(60, 52025, 12),
+(60, 52027, 9),
+(60, 18563, 31),
+(60, 18564, 35),
+(60, 52026, 9),
+(60, 51809, 12),
+(60, 43345, 5),
+(60, 38050, 10),
+(60, 38307, 3),
+(60, 49646, 6),
+(60, 32617, 4),
+(60, 49665, 5),
+(60, 56806, 5),
+(60, 32622, 3),
+(60, 45991, 3),
+(60, 41598, 4),
+(60, 13584, 4),
+(60, 45656, 8),
+(60, 32616, 4),
+(60, 44819, 5),
+(60, 45773, 3),
+(60, 38347, 5),
+(60, 23713, 4),
+(60, 49912, 3),
+(60, 49662, 4),
+(60, 23775, 3),
+(60, 49663, 4),
+(60, 24270, 4),
+(60, 20769, 19),
+(60, 44974, 14),
+(60, 13582, 22),
+(61, 54811, 194),
+(61, 32768, 68),
+(61, 32458, 62),
+(61, 37012, 44),
+(61, 54860, 49),
+(61, 50250, 32),
+(61, 49636, 22),
+(61, 54069, 16),
+(61, 35226, 13),
+(61, 49286, 0),
+(61, 45693, 19),
+(61, 45801, 24),
+(61, 45802, 19),
+(61, 46708, 24),
+(61, 44168, 12),
+(61, 51955, 27),
+(61, 44160, 11),
+(61, 47840, 18),
+(61, 30609, 11),
+(61, 44175, 12),
+(61, 43986, 8),
+(61, 33184, 44),
+(61, 44177, 12),
+(61, 44164, 16),
+(61, 34092, 11),
+(61, 44842, 8),
+(61, 44843, 8),
+(61, 43953, 6),
+(61, 43516, 11),
+(61, 44178, 9),
+(61, 43951, 9),
+(61, 37676, 11),
+(61, 44151, 11),
+(61, 43954, 9),
+(61, 32857, 9),
+(61, 34061, 9),
+(61, 43952, 11),
+(61, 46813, 9),
+(61, 32862, 9),
+(61, 32858, 9),
+(61, 32860, 9),
+(61, 32859, 9),
+(61, 32861, 9),
+(61, 44690, 0),
+(61, 43955, 9),
+(61, 54797, 9),
+(61, 45725, 16),
+(61, 33873, 45),
+(62, 21176, 66),
+(62, 50818, 171),
+(62, 46778, 116),
+(62, 33225, 155),
+(62, 33809, 40),
+(62, 19902, 58),
+(62, 41508, 28),
+(62, 44413, 24),
+(62, 30480, 25),
+(62, 38576, 14),
+(62, 13335, 13),
+(62, 45591, 8),
+(62, 19029, 8),
+(62, 47180, 8),
+(62, 54068, 25),
+(62, 46744, 8),
+(62, 37828, 11),
+(62, 49098, 10),
+(62, 45597, 8),
+(62, 45593, 8),
+(62, 12302, 16),
+(62, 18241, 8),
+(62, 43599, 37),
+(62, 40777, 12),
+(62, 46746, 9),
+(62, 46814, 9),
+(62, 47179, 9),
+(62, 18244, 9),
+(62, 8586, 11),
+(62, 46743, 9),
+(62, 13317, 25),
+(62, 18243, 9),
+(62, 13328, 9),
+(62, 45590, 9),
+(62, 18247, 9),
+(62, 46745, 9),
+(62, 46747, 9),
+(62, 46750, 9),
+(62, 45589, 9),
+(62, 12351, 13),
+(62, 35513, 32),
+(62, 5663, 13),
+(62, 12354, 13),
+(62, 15292, 12),
+(62, 15293, 12),
+(62, 12353, 14),
+(62, 13329, 11),
+(62, 49046, 22),
+(62, 49096, 25),
+(62, 46815, 13),
+(62, 29228, 41),
+(62, 45125, 20),
+(62, 46109, 11),
+(62, 23720, 35),
+(63, 22903, 6),
+(63, 44566, 3),
+(63, 44568, 3),
+(63, 44565, 3),
+(63, 44564, 3),
+(63, 31677, 3),
+(64, 44819, 3),
+(64, 44938, 3),
+(64, 45089, 3),
+(64, 45088, 3),
+(64, 45093, 3),
+(64, 23622, 3),
+(64, 44937, 3),
+(65, 44811, 4),
+(66, 33875, 3),
+(66, 33869, 3),
+(66, 33925, 3),
+(66, 43017, 3),
+(66, 43505, 3),
+(66, 43510, 3),
+(66, 39644, 3),
+(66, 43508, 3),
+(66, 43018, 3),
+(66, 6661, 3),
+(66, 33871, 3),
+(66, 43507, 3),
+(66, 43021, 3),
+(66, 43509, 3),
+(67, 46027, 12),
+(67, 33307, 6),
+(67, 22559, 5),
+(67, 46348, 5),
+(67, 44945, 3),
+(67, 35498, 3),
+(67, 20730, 3),
+(67, 19449, 3),
+(67, 20731, 3),
+(67, 33152, 3),
+(67, 20726, 3),
+(67, 33153, 3),
+(67, 20729, 3),
+(67, 22560, 3),
+(67, 37332, 3),
+(68, 49050, 4),
+(68, 44502, 3),
+(68, 44503, 3),
+(68, 34114, 3),
+(68, 23806, 3),
+(68, 23887, 3),
+(68, 35582, 3),
+(68, 23809, 3),
+(68, 23805, 3),
+(68, 35196, 3),
+(69, 42298, 5),
+(69, 42300, 3),
+(69, 41704, 3),
+(69, 46949, 3),
+(69, 46941, 3),
+(69, 47020, 3),
+(69, 46918, 4),
+(69, 42301, 3),
+(69, 41786, 3),
+(69, 41742, 3),
+(69, 46923, 3),
+(69, 42302, 3),
+(69, 41743, 3),
+(69, 46942, 3),
+(69, 24163, 3),
+(69, 46948, 3),
+(69, 46901, 3),
+(69, 46943, 3),
+(69, 41727, 3),
+(69, 42305, 3),
+(69, 46932, 3),
+(69, 25909, 3),
+(69, 46937, 3),
+(69, 42307, 3),
+(69, 46933, 3),
+(69, 47018, 3),
+(69, 42308, 3),
+(69, 46938, 3),
+(69, 42310, 3),
+(69, 46929, 3),
+(69, 42311, 3),
+(69, 46924, 3),
+(69, 46935, 3),
+(69, 47017, 3),
+(69, 46926, 3),
+(69, 41728, 3),
+(70, 44553, 3),
+(70, 47628, 3),
+(70, 47650, 3),
+(70, 47634, 3),
+(70, 47651, 3),
+(70, 47632, 3),
+(70, 47652, 3),
+(70, 44584, 3),
+(70, 47622, 3),
+(70, 47640, 3),
+(70, 47623, 3),
+(70, 47641, 3),
+(70, 47626, 3),
+(70, 47643, 3),
+(70, 47625, 3),
+(70, 47645, 3),
+(71, 42183, 3),
+(71, 47654, 3),
+(71, 47639, 3),
+(71, 45104, 3),
+(71, 42184, 3),
+(71, 47655, 3),
+(71, 47638, 3),
+(71, 47656, 3),
+(71, 47637, 3),
+(71, 47657, 3),
+(71, 47636, 3),
+(71, 45102, 3),
+(71, 45105, 3),
+(71, 45103, 3);
