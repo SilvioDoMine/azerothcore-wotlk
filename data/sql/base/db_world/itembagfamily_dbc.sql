@@ -49,6 +49,22 @@ CREATE TABLE `itembagfamily_dbc` (
 
 LOCK TABLES `itembagfamily_dbc` WRITE;
 /*!40000 ALTER TABLE `itembagfamily_dbc` DISABLE KEYS */;
+INSERT INTO `itembagfamily_dbc` VALUES (0,"NONE","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (1,"Arrows","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (2,"Bullets","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (3,"Soul Shards","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (4,"Leatherworking Supplies","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (5,"Inscription Supplies","","","","","","","","","","","","","","","",16712191);
+INSERT INTO `itembagfamily_dbc` VALUES (6,"Herbs","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (7,"Enchanting Supplies","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (8,"Engineering Supplies","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (9,"Keys","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (10,"Gems","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (11,"Mining Supplies","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (12,"Soulbound Equipment","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (13,"Vanity Pets","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (14,"Currency Tokens","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `itembagfamily_dbc` VALUES (15,"Quest Items","","","","","","","","","","","","","","","",16712190);
 /*!40000 ALTER TABLE `itembagfamily_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

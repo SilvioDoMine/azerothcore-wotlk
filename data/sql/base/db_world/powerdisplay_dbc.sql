@@ -37,6 +37,13 @@ CREATE TABLE `powerdisplay_dbc` (
 
 LOCK TABLES `powerdisplay_dbc` WRITE;
 /*!40000 ALTER TABLE `powerdisplay_dbc` DISABLE KEYS */;
+INSERT INTO `powerdisplay_dbc` VALUES (1,0,"AMMOSLOT",255,128,0);
+INSERT INTO `powerdisplay_dbc` VALUES (41,3,"POWER_TYPE_PYRITE",0,202,255);
+INSERT INTO `powerdisplay_dbc` VALUES (61,3,"POWER_TYPE_STEAM",242,242,242);
+INSERT INTO `powerdisplay_dbc` VALUES (101,3,"POWER_TYPE_HEAT",255,125,0);
+INSERT INTO `powerdisplay_dbc` VALUES (121,3,"POWER_TYPE_OOZE",193,255,0);
+INSERT INTO `powerdisplay_dbc` VALUES (141,3,"POWER_TYPE_BLOOD_POWER",188,0,255);
+INSERT INTO `powerdisplay_dbc` VALUES (142,3,"POWER_TYPE_WRATH",255,176,0);
 /*!40000 ALTER TABLE `powerdisplay_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -33,6 +33,22 @@ CREATE TABLE `durabilityquality_dbc` (
 
 LOCK TABLES `durabilityquality_dbc` WRITE;
 /*!40000 ALTER TABLE `durabilityquality_dbc` DISABLE KEYS */;
+INSERT INTO `durabilityquality_dbc` VALUES (1,1);
+INSERT INTO `durabilityquality_dbc` VALUES (2,0.6);
+INSERT INTO `durabilityquality_dbc` VALUES (3,1);
+INSERT INTO `durabilityquality_dbc` VALUES (4,0.8);
+INSERT INTO `durabilityquality_dbc` VALUES (5,1);
+INSERT INTO `durabilityquality_dbc` VALUES (6,1);
+INSERT INTO `durabilityquality_dbc` VALUES (7,1.2);
+INSERT INTO `durabilityquality_dbc` VALUES (8,1.25);
+INSERT INTO `durabilityquality_dbc` VALUES (9,1.44);
+INSERT INTO `durabilityquality_dbc` VALUES (10,2.5);
+INSERT INTO `durabilityquality_dbc` VALUES (11,1.728);
+INSERT INTO `durabilityquality_dbc` VALUES (12,3);
+INSERT INTO `durabilityquality_dbc` VALUES (13,0);
+INSERT INTO `durabilityquality_dbc` VALUES (14,0);
+INSERT INTO `durabilityquality_dbc` VALUES (15,1.2);
+INSERT INTO `durabilityquality_dbc` VALUES (16,1.25);
 /*!40000 ALTER TABLE `durabilityquality_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -66,6 +66,38 @@ CREATE TABLE `spellshapeshiftform_dbc` (
 
 LOCK TABLES `spellshapeshiftform_dbc` WRITE;
 /*!40000 ALTER TABLE `spellshapeshiftform_dbc` DISABLE KEYS */;
+INSERT INTO `spellshapeshiftform_dbc` VALUES (1,1,"Cat Form","","","","","","","","","","","","","","","",16712190,760,1,1534,1000,892,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (2,2,"Tree of Life Form","","","","","","","","","","","","","","","",16712190,2257,4,0,0,864,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (3,0,"Travel Form","","","","","","","","","","","","","","","",16712190,216,1,0,0,918,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (4,0,"Aquatic Form","","","","","","","","","","","","","","","",16712190,216,1,0,0,2428,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (5,3,"Bear Form","","","","","","","","","","","","","","","",16712190,728,1,496,2500,2281,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (6,0,"Ambient","","","","","","","","","","","","","","","",16712190,0,0,0,0,328,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (7,0,"Ghoul","","","","","","","","","","","","","","","",16712190,9689,6,0,0,25527,0,0,0,6603,47468,47481,47482,47480,0,47484,47496);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (8,3,"Dire Bear Form","","","","","","","","","","","","","","","",16712190,728,1,496,2500,2281,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (9,0,"Steve\'s Ghoul","","","","","","","","","","","","","","","",16712190,128,-1,0,0,24994,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (10,0,"Tharon\'ja Skeleton","","","","","","","","","","","","","","","",16712190,1034,6,0,0,9784,0,0,0,50799,49613,49609,49617,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (11,0,"Darkmoon - Test of Strength","","","","","","","","","","","","","","","",16712190,1226,-1,0,0,0,0,0,0,62022,62023,62024,62025,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (12,0,"BLB Player","","","","","","","","","","","","","","","",16712190,0,-1,0,0,0,0,0,0,44029,44752,44083,44010,44012,44817,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (13,2,"Shadow Dance","","","","","","","","","","","","","","","",16712190,1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (14,0,"Creature - Bear","","","","","","","","","","","","","","","",16712190,0,1,0,0,2281,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (15,0,"Creature - Cat","","","","","","","","","","","","","","","",16712190,0,1,0,0,892,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (16,0,"Ghost Wolf","","","","","","","","","","","","","","","",16712190,216,1,0,0,4613,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (17,1,"Battle Stance","","","","","","","","","","","","","","","",16712190,7,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (18,2,"Defensive Stance","","","","","","","","","","","","","","","",16712190,7,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (19,3,"Berserker Stance","","","","","","","","","","","","","","","",16712190,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (20,0,"Test","","","","","","","","","","","","","","","",16712190,0,-1,0,0,0,0,0,0,6603,20577,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (21,0,"Zombie","","","","","","","","","","","","","","","",16712190,5150,6,0,0,26942,0,0,0,57596,51230,56560,43949,56528,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (22,0,"Metamorphosis","","","","","","","","","","","","","","","",16712190,216,3,0,0,25277,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (23,0,"","","","","","","","","","","","","","","","",16712188,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (24,0,"","","","","","","","","","","","","","","","",16712188,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (25,0,"Undead","","","","","","","","","","","","","","","",16712190,205,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (26,0,"Frenzy","","","","","","","","","","","","","","","",16712190,216,1,0,0,17170,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (27,0,"Flight Form, Epic","","","","","","","","","","","","","","","",16712190,8,1,0,0,21243,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (28,1,"Shadowform","","","","","","","","","","","","","","","",16712190,9,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (29,0,"Flight Form","","","","","","","","","","","","","","","",16712190,8,1,0,0,20857,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (30,1,"Stealth","","","","","","","","","","","","","","","",16712190,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (31,4,"Moonkin Form","","","","","","","","","","","","","","","",16712190,2753,-1,0,0,15374,15375,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `spellshapeshiftform_dbc` VALUES (32,0,"Spirit of Redemption","","","","","","","","","","","","","","","",16712190,16640,-1,0,0,16031,0,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `spellshapeshiftform_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

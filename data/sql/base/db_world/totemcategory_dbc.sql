@@ -51,6 +51,38 @@ CREATE TABLE `totemcategory_dbc` (
 
 LOCK TABLES `totemcategory_dbc` WRITE;
 /*!40000 ALTER TABLE `totemcategory_dbc` DISABLE KEYS */;
+INSERT INTO `totemcategory_dbc` VALUES (1,"Skinning Knife (OLD)","","","","","","","","","","","","","","","",16712190,1,1);
+INSERT INTO `totemcategory_dbc` VALUES (2,"Earth Totem","","","","","","","","","","","","","","","",16712190,2,1);
+INSERT INTO `totemcategory_dbc` VALUES (3,"Air Totem","","","","","","","","","","","","","","","",16712190,2,2);
+INSERT INTO `totemcategory_dbc` VALUES (4,"Fire Totem","","","","","","","","","","","","","","","",16712190,2,4);
+INSERT INTO `totemcategory_dbc` VALUES (5,"Water Totem","","","","","","","","","","","","","","","",16712190,2,8);
+INSERT INTO `totemcategory_dbc` VALUES (6,"Runed Copper Rod","","","","","","","","","","","","","","","",16712190,3,1);
+INSERT INTO `totemcategory_dbc` VALUES (7,"Runed Silver Rod","","","","","","","","","","","","","","","",16712190,3,3);
+INSERT INTO `totemcategory_dbc` VALUES (8,"Runed Golden Rod","","","","","","","","","","","","","","","",16712190,3,7);
+INSERT INTO `totemcategory_dbc` VALUES (9,"Runed Truesilver Rod","","","","","","","","","","","","","","","",16712190,3,15);
+INSERT INTO `totemcategory_dbc` VALUES (10,"Runed Arcanite Rod","","","","","","","","","","","","","","","",16712190,3,31);
+INSERT INTO `totemcategory_dbc` VALUES (11,"Mining Pick (OLD)","","","","","","","","","","","","","","","",16712190,21,1);
+INSERT INTO `totemcategory_dbc` VALUES (12,"Philosopher\'s Stone","","","","","","","","","","","","","","","",16712190,22,1);
+INSERT INTO `totemcategory_dbc` VALUES (13,"Blacksmith Hammer (OLD)","","","","","","","","","","","","","","","",16712190,23,1);
+INSERT INTO `totemcategory_dbc` VALUES (14,"Arclight Spanner","","","","","","","","","","","","","","","",16712190,24,1);
+INSERT INTO `totemcategory_dbc` VALUES (15,"Gyromatic Micro-Adjustor","","","","","","","","","","","","","","","",16712190,24,2);
+INSERT INTO `totemcategory_dbc` VALUES (21,"Master Totem","","","","","","","","","","","","","","","",16712190,2,15);
+INSERT INTO `totemcategory_dbc` VALUES (41,"Runed Fel Iron Rod","","","","","","","","","","","","","","","",16712190,3,63);
+INSERT INTO `totemcategory_dbc` VALUES (62,"Runed Adamantite Rod","","","","","","","","","","","","","","","",16712190,3,127);
+INSERT INTO `totemcategory_dbc` VALUES (63,"Runed Eternium Rod","","","","","","","","","","","","","","","",16712190,3,255);
+INSERT INTO `totemcategory_dbc` VALUES (81,"Hollow Quill","","","","","","","","","","","","","","","",16712190,22,4);
+INSERT INTO `totemcategory_dbc` VALUES (101,"Runed Azurite Rod","","","","","","","","","","","","","","","",16712190,3,511);
+INSERT INTO `totemcategory_dbc` VALUES (121,"Virtuoso Inking Set","","","","","","","","","","","","","","","",16712190,24,-2147483648);
+INSERT INTO `totemcategory_dbc` VALUES (141,"Drums","","","","","","","","","","","","","","","",16712190,24,1073741824);
+INSERT INTO `totemcategory_dbc` VALUES (161,"Gnomish Army Knife","","","","","","","","","","","","","","","",16712190,24,63);
+INSERT INTO `totemcategory_dbc` VALUES (162,"Blacksmith Hammer","","","","","","","","","","","","","","","",16712190,24,4);
+INSERT INTO `totemcategory_dbc` VALUES (165,"Mining Pick","","","","","","","","","","","","","","","",16712190,24,8);
+INSERT INTO `totemcategory_dbc` VALUES (166,"Skinning Knife","","","","","","","","","","","","","","","",16712190,24,16);
+INSERT INTO `totemcategory_dbc` VALUES (167,"Hammer Pick","","","","","","","","","","","","","","","",16712190,24,12);
+INSERT INTO `totemcategory_dbc` VALUES (168,"Bladed Pickaxe","","","","","","","","","","","","","","","",16712190,24,24);
+INSERT INTO `totemcategory_dbc` VALUES (169,"Flint and Tinder","","","","","","","","","","","","","","","",16712190,24,32);
+INSERT INTO `totemcategory_dbc` VALUES (189,"Runed Cobalt Rod (DO NOT USE)","","","","","","","","","","","","","","","",16712190,3,511);
+INSERT INTO `totemcategory_dbc` VALUES (190,"Runed Titanium Rod","","","","","","","","","","","","","","","",16712190,3,1023);
 /*!40000 ALTER TABLE `totemcategory_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

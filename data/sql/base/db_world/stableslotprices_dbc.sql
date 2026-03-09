@@ -33,6 +33,10 @@ CREATE TABLE `stableslotprices_dbc` (
 
 LOCK TABLES `stableslotprices_dbc` WRITE;
 /*!40000 ALTER TABLE `stableslotprices_dbc` DISABLE KEYS */;
+INSERT INTO `stableslotprices_dbc` VALUES (1,500);
+INSERT INTO `stableslotprices_dbc` VALUES (2,50000);
+INSERT INTO `stableslotprices_dbc` VALUES (3,500000);
+INSERT INTO `stableslotprices_dbc` VALUES (4,1500000);
 /*!40000 ALTER TABLE `stableslotprices_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

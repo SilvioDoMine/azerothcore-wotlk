@@ -76,6 +76,32 @@ CREATE TABLE `liquidtype_dbc` (
 
 LOCK TABLES `liquidtype_dbc` WRITE;
 /*!40000 ALTER TABLE `liquidtype_dbc` DISABLE KEYS */;
+INSERT INTO `liquidtype_dbc` VALUES (1,"Water",15,0,1111,0,0,0,0,0,0,1,0,0,1,"XTextures\river\lake_a.%d.blp","proceduralRiverDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (2,"Ocean",15,1,1114,0,30,0.5,0.5,0.25,0,1,0,0,1,"XTextures\ocean\ocean_h.%d.blp","proceduralOceanDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (3,"Magma",120,2,3072,0,0,0,0,0,7,4,1,1,2,"XTextures\lava\lava.%d.blp","","","","","",0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (4,"Slime",322,3,3880,0,0,0,0,0,6,0,0,0,2,"XTextures\slime\slime.%d.blp","","","","","",0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (5,"Slow Water",15,0,1112,0,0,0,0,0,0,1,0,0,1,"XTextures\river\lake_a.%d.blp","proceduralRiverDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (6,"Slow Ocean",15,1,1114,0,30,0.5,0.5,0.25,0,1,0,0,1,"XTextures\ocean\ocean_h.%d.blp","proceduralOceanDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (7,"Slow Magma",120,2,3052,0,0,0,0,0,7,4,1,1,2,"XTextures\lava\lava.%d.blp","","","","","",0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (8,"Slow Slime",322,3,3880,0,0,0,0,0,6,0,0,0,2,"XTextures\slime\slime.%d.blp","","","","","",0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (9,"Fast Water",15,0,1113,0,0,0,0,0,0,1,0,0,1,"XTextures\river\fast_a.%d.blp","proceduralRiverDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (10,"Fast Ocean",15,1,1114,0,30,0.5,0.5,0.25,0,1,0,0,1,"XTextures\ocean\ocean_h.%d.blp","proceduralOceanDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (11,"Fast Magma",120,2,3052,0,0,0,0,0,7,4,1,1,2,"XTextures\lava\lava.%d.blp","","","","","",0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (12,"Fast Slime",322,3,3880,0,0,0,0,0,6,0,0,0,2,"XTextures\slime\slime.%d.blp","","","","","",0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (13,"WMO Water",15,0,1111,0,0,0,0,0,0,1,0,0,1,"XTextures\river\lake_a.%d.blp","proceduralWmoWaterTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (14,"WMO Ocean",527,1,1114,0,30,0.5,0.5,0.25,0,1,0,0,1,"XTextures\ocean\ocean_h.%d.blp","proceduralOceanDepthTex","","","","",0,0,0.25,180,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (15,"Green Lava",120,2,3072,0,0,0,0,0,6,4,1,1,2,"XTextures\LavaGreen\lavagreen.%d.blp","","","","","",0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (17,"WMO Water - Interior",15,0,1111,0,0,0,0,0,0,1,0,0,1,"XTextures\river\lake_a.%d.blp","proceduralWmoWaterTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (19,"WMO Magma",120,2,3072,0,0,0,0,0,7,4,1,1,2,"XTextures\lava\lava.%d.blp","","","","","",0,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (20,"WMO Slime",322,3,3880,0,0,0,0,0,6,0,0,0,2,"XTextures\slime\slime.%d.blp","","","","","",0,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (21,"Naxxramas - Slime",322,3,3880,28801,0,0,0,0,6,0,0,0,2,"XTextures\slime\slime.%d.blp","","","","","",0,0,0.025,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (41,"Coilfang Raid - Water",15,0,1111,37025,0,0,0,0,0,1,0,0,1,"XTextures\river\lake_a.%d.blp","proceduralRiverDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (61,"Hyjal Past - Water",15,0,1111,42201,0,0,0,0,0,1,0,0,1,"XTextures\river\lake_a.%d.blp","proceduralRiverDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (81,"Lake Wintergrasp - Water",15,0,1112,36444,0,0,0,0,0,1,0,0,1,"XTextures\river\lake_a.%d.blp","proceduralRiverDepthTex","","","","",0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1250,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (100,"Basic Procedural Water",15,1,1114,0,30,0.5,0.5,0,0,1,0,0,3,"XTextures\procWater\basicReflectionMap.blp","XTextures\procWater\basicReflectionMap.blp","XTextures\procWater\basicWaterHeightTex_%d.blp","XTextures\procWater\basicWaterHeightTex_%d.blp","proceduralOceanDepthTex","XTextures\ocean\ocean_h.%d.blp",0,0,0.1,0.5,1.5,2,0,0,0,0,1,1,0,300,0.333,0.2,0.1,0.2,0.8,0.2,1,1250,1250,1250);
+INSERT INTO `liquidtype_dbc` VALUES (121,"CoA Black - Magma",120,2,3052,57634,0,0,0,0,7,4,1,1,2,"XTextures\lava\lava.%d.blp","","","","","",0,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (141,"Chamber Magma",120,2,3072,57634,0,0,0,0,7,4,1,1,2,"XTextures\lava\lava.%d.blp","","","","","",0,0,0,0.1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `liquidtype_dbc` VALUES (181,"Orange Slime",15,0,1111,0,0,0,0,0,0,1,0,0,1,"XTEXTURES\LavaOrange\LavaOrange.%d.blp","proceduralRiverDepthTex","","","","",0,0,2,0,8.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1250,0,0);
 /*!40000 ALTER TABLE `liquidtype_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

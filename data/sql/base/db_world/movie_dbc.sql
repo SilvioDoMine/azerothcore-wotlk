@@ -34,6 +34,10 @@ CREATE TABLE `movie_dbc` (
 
 LOCK TABLES `movie_dbc` WRITE;
 /*!40000 ALTER TABLE `movie_dbc` DISABLE KEYS */;
+INSERT INTO `movie_dbc` VALUES (1,"Interface\Cinematics\Logo",100);
+INSERT INTO `movie_dbc` VALUES (2,"Interface\Cinematics\WOW_Intro",100);
+INSERT INTO `movie_dbc` VALUES (14,"",100);
+INSERT INTO `movie_dbc` VALUES (16,"",100);
 /*!40000 ALTER TABLE `movie_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

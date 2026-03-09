@@ -63,6 +63,19 @@ CREATE TABLE `battlemasterlist_dbc` (
 
 LOCK TABLES `battlemasterlist_dbc` WRITE;
 /*!40000 ALTER TABLE `battlemasterlist_dbc` DISABLE KEYS */;
+INSERT INTO `battlemasterlist_dbc` VALUES (1,30,-1,-1,-1,-1,-1,-1,-1,3,1,"Alterac Valley","","","","","","","","","","","","","","","",16712190,5,1941,51,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (2,489,-1,-1,-1,-1,-1,-1,-1,3,1,"Warsong Gulch","","","","","","","","","","","","","","","",16712190,10,1942,10,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (3,529,-1,-1,-1,-1,-1,-1,-1,3,1,"Arathi Basin","","","","","","","","","","","","","","","",16712190,15,1943,20,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (4,559,-1,-1,-1,-1,-1,-1,-1,4,1,"Nagrand Arena","","","","","","","","","","","","","","","",16712190,5,0,10,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (5,562,-1,-1,-1,-1,-1,-1,-1,4,1,"Blade\'s Edge Arena","","","","","","","","","","","","","","","",16712190,5,0,10,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (6,559,562,572,617,618,-1,-1,-1,4,1,"All Arenas","","","","","","","","","","","","","","","",16712190,5,0,10,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (7,566,-1,-1,-1,-1,-1,-1,-1,3,1,"Eye of the Storm","","","","","","","","","","","","","","","",16712190,15,2851,61,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (8,572,-1,-1,-1,-1,-1,-1,-1,4,1,"Ruins of Lordaeron","","","","","","","","","","","","","","","",16712190,5,0,10,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (9,607,-1,-1,-1,-1,-1,-1,-1,3,1,"Strand of the Ancients","","","","","","","","","","","","","","","",16712190,15,3695,71,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (10,617,-1,-1,-1,-1,-1,-1,-1,4,1,"Dalaran Sewers","","","","","","","","","","","","","","","",16712190,5,0,10,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (11,618,-1,-1,-1,-1,-1,-1,-1,4,1,"The Ring of Valor","","","","","","","","","","","","","","","",16712190,5,0,10,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (30,628,-1,-1,-1,-1,-1,-1,-1,3,1,"Isle of Conquest","","","","","","","","","","","","","","","",16712190,5,4273,71,80);
+INSERT INTO `battlemasterlist_dbc` VALUES (32,30,489,529,566,607,628,-1,-1,3,1,"Random Battleground","","","","","","","","","","","","","","","",16712190,5,0,0,0);
 /*!40000 ALTER TABLE `battlemasterlist_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

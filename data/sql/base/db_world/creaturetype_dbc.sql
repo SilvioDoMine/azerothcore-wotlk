@@ -50,6 +50,19 @@ CREATE TABLE `creaturetype_dbc` (
 
 LOCK TABLES `creaturetype_dbc` WRITE;
 /*!40000 ALTER TABLE `creaturetype_dbc` DISABLE KEYS */;
+INSERT INTO `creaturetype_dbc` VALUES (1,"Beast","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (2,"Dragonkin","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (3,"Demon","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (4,"Elemental","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (5,"Giant","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (6,"Undead","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (7,"Humanoid","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (8,"Critter","","","","","","","","","","","","","","","",16712190,1);
+INSERT INTO `creaturetype_dbc` VALUES (9,"Mechanical","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (10,"Not specified","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (11,"Totem","","","","","","","","","","","","","","","",16712190,0);
+INSERT INTO `creaturetype_dbc` VALUES (12,"Non-combat Pet","","","","","","","","","","","","","","","",16712190,1);
+INSERT INTO `creaturetype_dbc` VALUES (13,"Gas Cloud","","","","","","","","","","","","","","","",16712190,1);
 /*!40000 ALTER TABLE `creaturetype_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

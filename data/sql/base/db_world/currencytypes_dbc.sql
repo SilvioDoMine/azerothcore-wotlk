@@ -35,6 +35,32 @@ CREATE TABLE `currencytypes_dbc` (
 
 LOCK TABLES `currencytypes_dbc` WRITE;
 /*!40000 ALTER TABLE `currencytypes_dbc` DISABLE KEYS */;
+INSERT INTO `currencytypes_dbc` VALUES (1,37711,1,1);
+INSERT INTO `currencytypes_dbc` VALUES (2,37742,1,2);
+INSERT INTO `currencytypes_dbc` VALUES (42,29434,1,7);
+INSERT INTO `currencytypes_dbc` VALUES (61,41596,1,8);
+INSERT INTO `currencytypes_dbc` VALUES (81,43016,1,9);
+INSERT INTO `currencytypes_dbc` VALUES (241,44990,1,25);
+INSERT INTO `currencytypes_dbc` VALUES (103,43307,2,12);
+INSERT INTO `currencytypes_dbc` VALUES (104,43308,2,13);
+INSERT INTO `currencytypes_dbc` VALUES (121,20560,2,14);
+INSERT INTO `currencytypes_dbc` VALUES (122,20559,2,15);
+INSERT INTO `currencytypes_dbc` VALUES (123,29024,2,16);
+INSERT INTO `currencytypes_dbc` VALUES (124,42425,2,17);
+INSERT INTO `currencytypes_dbc` VALUES (125,20558,2,18);
+INSERT INTO `currencytypes_dbc` VALUES (126,43589,2,19);
+INSERT INTO `currencytypes_dbc` VALUES (161,43228,2,21);
+INSERT INTO `currencytypes_dbc` VALUES (181,44209,2,22);
+INSERT INTO `currencytypes_dbc` VALUES (201,37836,2,23);
+INSERT INTO `currencytypes_dbc` VALUES (321,47395,2,28);
+INSERT INTO `currencytypes_dbc` VALUES (4,38644,3,3);
+INSERT INTO `currencytypes_dbc` VALUES (101,40752,22,10);
+INSERT INTO `currencytypes_dbc` VALUES (102,40753,22,11);
+INSERT INTO `currencytypes_dbc` VALUES (221,45624,22,24);
+INSERT INTO `currencytypes_dbc` VALUES (301,47241,22,27);
+INSERT INTO `currencytypes_dbc` VALUES (341,49426,22,29);
+INSERT INTO `currencytypes_dbc` VALUES (22,41749,24,5);
+INSERT INTO `currencytypes_dbc` VALUES (141,43949,2089878896,20);
 /*!40000 ALTER TABLE `currencytypes_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 

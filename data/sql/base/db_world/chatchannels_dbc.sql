@@ -68,6 +68,12 @@ CREATE TABLE `chatchannels_dbc` (
 
 LOCK TABLES `chatchannels_dbc` WRITE;
 /*!40000 ALTER TABLE `chatchannels_dbc` DISABLE KEYS */;
+INSERT INTO `chatchannels_dbc` VALUES (1,524291,0,"General - %s","","","","","","","","","","","","","","","",16712190,"General","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `chatchannels_dbc` VALUES (2,59,0,"Trade - %s","","","","","","","","","","","","","","","",16712190,"Trade","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `chatchannels_dbc` VALUES (22,65539,0,"LocalDefense - %s","","","","","","","","","","","","","","","",16712190,"LocalDefense","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `chatchannels_dbc` VALUES (23,65540,0,"WorldDefense","","","","","","","","","","","","","","","",16712190,"WorldDefense","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `chatchannels_dbc` VALUES (25,131122,0,"GuildRecruitment - %s","","","","","","","","","","","","","","","",16712190,"GuildRecruitment","","","","","","","","","","","","","","","",16712190);
+INSERT INTO `chatchannels_dbc` VALUES (26,262201,0,"LookingForGroup","","","","","","","","","","","","","","","",16712190,"LookingForGroup","","","","","","","","","","","","","","","",16712190);
 /*!40000 ALTER TABLE `chatchannels_dbc` ENABLE KEYS */;
 UNLOCK TABLES;
 
