@@ -1,10 +1,13 @@
 #include "VipSystem.h"
 
+#include "CharacterCache.h"
 #include "Chat.h"
 #include "CommandScript.h"
 #include "DBCStores.h"
 #include "GameTime.h"
 #include "Guild.h"
+#include "Item.h"
+#include "Mail.h"
 #include "ObjectMgr.h"
 #include "Player.h"
 
@@ -19,8 +22,9 @@ public:
     {
         static ChatCommandTable vipSubCommands =
         {
-            { "tele",   HandleVipTeleCommand,      SEC_PLAYER, Console::No },
-            { "bank",   HandleVipBankCommand,      SEC_PLAYER, Console::No },
+            { "add",    HandleVipAddCommand,        SEC_GAMEMASTER, Console::Yes },
+            { "tele",   HandleVipTeleCommand,       SEC_PLAYER, Console::No },
+            { "bank",   HandleVipBankCommand,       SEC_PLAYER, Console::No },
             { "gbank",  HandleVipGuildBankCommand,  SEC_PLAYER, Console::No },
             { "mail",   HandleVipMailCommand,       SEC_PLAYER, Console::No },
             { "logout", HandleVipLogoutCommand,     SEC_PLAYER, Console::No },
@@ -33,6 +37,73 @@ public:
         };
 
         return commandTable;
+    }
+
+    static bool HandleVipAddCommand(ChatHandler* handler, std::string playerName, uint32 days)
+    {
+        const auto& config = sVipSystem->GetConfig();
+
+        if (!config.Enabled)
+        {
+            handler->SendErrorMessage("[VIP] Sistema VIP desativado.");
+            return false;
+        }
+
+        if (days == 0)
+        {
+            handler->SendErrorMessage("[VIP] A quantidade de dias deve ser maior que zero.");
+            return false;
+        }
+
+        if (!normalizePlayerName(playerName))
+        {
+            handler->SendErrorMessage("[VIP] Nome de personagem invalido: '{}'.", playerName);
+            return false;
+        }
+
+        ObjectGuid targetGuid = sCharacterCache->GetCharacterGuidByName(playerName);
+        if (!targetGuid)
+        {
+            handler->SendErrorMessage("[VIP] Personagem '{}' nao encontrado.", playerName);
+            return false;
+        }
+
+        ItemTemplate const* proto = sObjectMgr->GetItemTemplate(config.ItemEntry);
+        if (!proto)
+        {
+            handler->SendErrorMessage("[VIP] Item VIP (entry={}) nao encontrado no banco de dados.", config.ItemEntry);
+            return false;
+        }
+
+        uint32 maxStack = proto->GetMaxStackSize();
+        uint32 remaining = days;
+
+        auto trans = CharacterDatabase.BeginTransaction();
+        MailDraft draft(
+            "Dias VIP adquiridos!",
+            "Parabens, aventureiro!\n\nVoce recebeu dias de VIP. Use os itens em anexo para ativar seu tempo VIP e aproveitar todos os beneficios exclusivos do servidor.\n\nBoa sorte em sua jornada!\n-- Equipe do Servidor");
+
+        while (remaining > 0)
+        {
+            uint32 stackCount = std::min(remaining, maxStack);
+            Item* item = Item::CreateItem(config.ItemEntry, stackCount, nullptr);
+            if (!item)
+            {
+                handler->SendErrorMessage("[VIP] Falha ao criar item VIP (entry={}).", config.ItemEntry);
+                return false;
+            }
+            item->SaveToDB(trans);
+            draft.AddItem(item);
+            remaining -= stackCount;
+        }
+
+        draft.SendMailTo(trans, MailReceiver(nullptr, targetGuid.GetCounter()),
+            MailSender(MAIL_NORMAL, 0, MAIL_STATIONERY_GM));
+
+        CharacterDatabase.CommitTransaction(trans);
+
+        handler->PSendSysMessage("[VIP] {} dias VIP enviados para '{}' via correio.", days, playerName);
+        return true;
     }
 
     static bool HandleVipCommand(ChatHandler* handler)
